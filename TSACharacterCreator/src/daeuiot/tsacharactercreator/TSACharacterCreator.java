@@ -69,6 +69,7 @@ public class TSACharacterCreator extends Application {
         //Change the background so that the culture textfield is a ComboBox
         //So you pick a culture which filters what background you can pick
         //which also changes from a textfield to a combo box
+        //Need to add culture description, not just location description
         Label lbBackgroundName = new Label("Backgrounds");
         lbBackgroundName.relocate(5, 10);
         

@@ -14,6 +14,7 @@ import javafx.beans.property.StringProperty;
  * @author Daeuiot
  */
 class CharacterBackground {    
+    //Need to add culture description, not just location description
     private String culture;
     private String location;
     private String description;
