@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package daeuiot.tsacharactercreator;
+package daeuiot.datatypes;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
@@ -13,7 +13,7 @@ import javafx.beans.property.StringProperty;
  * 
  * @author Daeuiot
  */
-class CharacterBackground {    
+public class CharacterBackground {    
     //Need to add culture description, not just location description
     private String culture;
     private String location;

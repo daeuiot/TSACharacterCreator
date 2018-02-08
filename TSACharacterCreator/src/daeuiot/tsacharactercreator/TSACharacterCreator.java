@@ -5,7 +5,11 @@
  */
 package daeuiot.tsacharactercreator;
 
+import daeuiot.datatypes.PlayerCharacter;
+import daeuiot.datatypes.CharacterBackground;
+import daeuiot.utility.Helper;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import javafx.application.Application;
 import javafx.beans.property.SimpleStringProperty;
@@ -50,6 +54,7 @@ public class TSACharacterCreator extends Application {
     @Override
     public void start(Stage primaryStage) {
         pc = new PlayerCharacter(); //Set a default PC
+        loadData();
         
         build(primaryStage, 900, 600);
         
@@ -65,8 +70,6 @@ public class TSACharacterCreator extends Application {
      */
     private void build(Stage primaryStage, int windowWidth, int windowHeight)
     {
-        loadData();
-        
         //Set up tabs on the side - used for switching content pages
         VBox tabs = new VBox(); //Used to hold the tabs for the categories ie. Background/Class/Skills/etc.
         Button btnCharacters    = new Button("Characters");
@@ -231,7 +234,7 @@ public class TSACharacterCreator extends Application {
             PrintWriter fout = new PrintWriter(new File("Characters/"+pc.getFileName()+".json"));
             fout.println(outText);
             fout.close();
-        }catch(Exception e)
+        }catch(FileNotFoundException e)
         {
             System.err.println("SAVE CHARACTER - "+e.getMessage());
         }

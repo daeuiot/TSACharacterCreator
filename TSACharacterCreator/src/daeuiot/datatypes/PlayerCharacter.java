@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package daeuiot.tsacharactercreator;
+package daeuiot.datatypes;
 
+import daeuiot.datatypes.CharacterBackground;
 import javafx.beans.InvalidationListener;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.StringProperty;
