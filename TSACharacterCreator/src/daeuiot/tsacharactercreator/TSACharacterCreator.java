@@ -5,6 +5,8 @@
  */
 package daeuiot.tsacharactercreator;
 
+import java.io.File;
+import java.io.PrintWriter;
 import javafx.application.Application;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
@@ -30,15 +32,17 @@ public class TSACharacterCreator extends Application {
     PlayerCharacter pc; //The currently sellected PC
     
     enum ContentPage {
-        BACKGROUND, ATTRIBUTE, SKILL
+        CHARACTER, BACKGROUND, ATTRIBUTE, SKILL
     }
     
     ContentPage currentContentPage;
     
     //Data
+    ObservableList<PlayerCharacter> playerCharacters;
     ObservableList<CharacterBackground> characterBackgrounds;
     
     //Content Boxes
+    Pane characterContent;
     Pane backgroundContent;
     Pane attributeContent;
     Pane skillContent;
@@ -63,6 +67,7 @@ public class TSACharacterCreator extends Application {
     {
         loadData();
         
+        //Set up tabs on the side - used for switching content pages
         VBox tabs = new VBox(); //Used to hold the tabs for the categories ie. Background/Class/Skills/etc.
         Button btnCharacters    = new Button("Characters");
         Button btnBackgrounds   = new Button("Background");
@@ -76,6 +81,18 @@ public class TSACharacterCreator extends Application {
         btnAttributes.setMinWidth(tabs.getPrefWidth());
         btnSkills.setMinWidth(tabs.getPrefWidth());
         tabs.setMaxSize(150, windowHeight);
+        
+        //---Characters ContentBox
+        Label lbCharacterName = new Label("Characters");
+        lbCharacterName.relocate(5, 10);
+        
+        Button btnSave = new Button("SAVE");
+        btnSave.relocate(100, 10);
+        btnSave.setOnAction((e) -> {
+            saveCharacter();
+        });
+        
+        characterContent = new Pane(lbCharacterName, btnSave);
         
         //---Backgrounds ContentBox
         //Change the background so that the culture textfield is a ComboBox
@@ -129,6 +146,11 @@ public class TSACharacterCreator extends Application {
         contentBox.setStyle("-fx-background-color: orange");
         contentBox.setMinSize(600, 400);
         
+        btnCharacters.setOnAction((e) -> {
+            saveContentPageChildren(contentBox.getChildren());
+            contentBox.getChildren().setAll(characterContent.getChildren());
+            currentContentPage = ContentPage.CHARACTER;
+        });
         btnBackgrounds.setOnAction((e) -> {
             saveContentPageChildren(contentBox.getChildren());
             contentBox.getChildren().setAll(backgroundContent.getChildren());
@@ -163,6 +185,9 @@ public class TSACharacterCreator extends Application {
             case BACKGROUND: 
                 backgroundContent.getChildren().setAll(children);
                 break;
+            case CHARACTER: 
+                characterContent.getChildren().setAll(children);
+                break;
             case SKILL: 
                 skillContent.getChildren().setAll(children);
                 break;
@@ -177,6 +202,7 @@ public class TSACharacterCreator extends Application {
      */
     private void loadData()
     {
+        playerCharacters = FXCollections.observableArrayList();
         characterBackgrounds = FXCollections.observableArrayList();
         characterBackgrounds.clear();
         characterBackgrounds.add(new CharacterBackground(
@@ -187,6 +213,28 @@ public class TSACharacterCreator extends Application {
                 "Earth Kingdom",
                 "Ba Sing Se",
                 "By far the largest city in the world of Avatar, Ba Sing Se is more of a small country than a mere city"));
+    }
+    
+    /**
+     * Saves the current playerChacter to file
+     */
+    private void saveCharacter()
+    {
+        String outText = Helper.getJSON(pc);
+        try
+        {
+            File saveFolder = new File("Characters");
+            if(saveFolder.exists() == false)
+            {
+                saveFolder.mkdir();
+            }
+            PrintWriter fout = new PrintWriter(new File("Characters/"+pc.getFileName()+".json"));
+            fout.println(outText);
+            fout.close();
+        }catch(Exception e)
+        {
+            System.err.println("SAVE CHARACTER - "+e.getMessage());
+        }
     }
     
     /**

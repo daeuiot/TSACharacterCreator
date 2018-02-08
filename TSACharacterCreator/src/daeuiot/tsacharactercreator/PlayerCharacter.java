@@ -19,11 +19,13 @@ import javafx.beans.value.ObservableValue;
  */
 public class PlayerCharacter {
     //private SimpleObjectProperty<CharacterBackground> backgroundProperty;
+    private String fileName;
     private CharacterBackground background;
     
     public PlayerCharacter()
     {
         //backgroundProperty = new SimpleObjectProperty<>(new CharacterBackground("NULL", "NULL", "NULL"));
+        fileName = "char01";
         background = new CharacterBackground("NULL", "NULL", "NULL");
     }
 
@@ -41,6 +43,11 @@ public class PlayerCharacter {
         return backgroundProperty;
     }
     */
+    
+    public String getFileName()
+    {
+        return fileName;
+    }
     
     public CharacterBackground getBackground() {
         return background;
