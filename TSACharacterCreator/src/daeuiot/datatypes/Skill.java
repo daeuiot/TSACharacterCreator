@@ -13,11 +13,13 @@ public class Skill {
     private String name;
     private String type;
     private String attribute;
+    private String description;
 
-    public Skill(String name, String type, String attribute) {
+    public Skill(String name, String type, String attribute, String description) {
         this.name = name;
         this.type = type;
         this.attribute = attribute;
+        this.description = description;
     }
 
     public String getName() {
@@ -42,5 +44,13 @@ public class Skill {
 
     public void setAttribute(String attribute) {
         this.attribute = attribute;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

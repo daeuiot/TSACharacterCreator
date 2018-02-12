@@ -5,8 +5,7 @@
  */
 package daeuiot.tsadataeditor;
 
-import daeuiot.datatypes.CharacterBackground;
-import daeuiot.datatypes.Skill;
+import daeuiot.datatypes.*;
 import daeuiot.utility.Helper;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -116,7 +115,7 @@ public class DataEditor extends Application {
             {
                if(dialogButton == btnAddType)
                {
-                   return new Skill(tfName.getText(), cbType.getValue().toUpperCase(), cbAttribute.getValue().toUpperCase());
+                   return new Skill(tfName.getText(), cbType.getValue().toUpperCase(), cbAttribute.getValue().toUpperCase(), "DESCRIPTION TO BE ADDED");
                }
                return null;
             });
