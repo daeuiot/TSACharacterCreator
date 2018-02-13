@@ -9,25 +9,20 @@ package daeuiot.datatypes;
  *
  * @author Daeuiot
  */
-public class Skill {
-    private String name;
+public class Skill extends CharacterDataType{
     private String type;
     private String attribute;
-    private String description;
 
-    public Skill(String name, String type, String attribute, String description) {
-        this.name = name;
+    public Skill(String type, String attribute, String key, String name, String description) {
+        super(key, name, description);
         this.type = type;
         this.attribute = attribute;
-        this.description = description;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
+    public Skill(String name, String type, String attribute, String description) {
+        super("KEY", name, description);
+        this.type = type;
+        this.attribute = attribute;
     }
 
     public String getType() {
@@ -44,13 +39,5 @@ public class Skill {
 
     public void setAttribute(String attribute) {
         this.attribute = attribute;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
     }
 }
