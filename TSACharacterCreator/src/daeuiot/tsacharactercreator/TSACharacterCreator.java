@@ -32,7 +32,7 @@ import javafx.stage.Stage;
  * @author Daeuiot
  */
 public class TSACharacterCreator extends Application {
-    Pane contentBox; //This is the Pane that contains all the content that changes when changing tabs
+    Pane contentPage; //This is the Pane that contains all the content that changes when changing tabs
     PlayerCharacter pc; //The currently sellected PC
     
     enum ContentPage {
@@ -45,7 +45,7 @@ public class TSACharacterCreator extends Application {
     ObservableList<PlayerCharacter> playerCharacters;
     ObservableList<CharacterBackground> characterBackgrounds;
     
-    //Content Boxes
+    //Content Pages
     Pane characterContent;
     Pane backgroundContent;
     Pane attributeContent;
@@ -85,7 +85,7 @@ public class TSACharacterCreator extends Application {
         btnSkills.setMinWidth(tabs.getPrefWidth());
         tabs.setMaxSize(150, windowHeight);
         
-        //---Characters ContentBox
+        //---Characters Content Page
         Label lbCharacterName = new Label("Characters");
         lbCharacterName.relocate(5, 10);
         
@@ -97,7 +97,7 @@ public class TSACharacterCreator extends Application {
         
         characterContent = new Pane(lbCharacterName, btnSave);
         
-        //---Backgrounds ContentBox
+        //---Backgrounds Content Page
         //Change the background so that the culture textfield is a ComboBox
         //So you pick a culture which filters what background you can pick
         //which also changes from a textfield to a combo box
@@ -131,48 +131,48 @@ public class TSACharacterCreator extends Application {
         
         backgroundContent = new Pane(lbBackgroundName,cbBackgrounds,tfBackgroundCulture,tfBackgroundLocation,tfBackgroundDescription);
         
-        //---Attributes ContentBox
+        //---Attributes Content Page
         Label lbAttributeName = new Label("Attributes");
         lbAttributeName.relocate(5, 10);
         
         attributeContent = new Pane(lbAttributeName);
         
-        //---Skills ContentBox
+        //---Skills Content Page
         Label lbSkillName = new Label("Skills");
         lbSkillName.relocate(5, 10);
         
         skillContent = new Pane(lbSkillName);
         
-        contentBox = new Pane();
-        contentBox.getChildren().setAll(backgroundContent.getChildren());
+        contentPage = new Pane();
+        contentPage.getChildren().setAll(backgroundContent.getChildren());
         currentContentPage = ContentPage.BACKGROUND;
-        contentBox.setStyle("-fx-background-color: orange");
-        contentBox.setMinSize(600, 400);
+        contentPage.setStyle("-fx-background-color: orange");
+        contentPage.setMinSize(600, 400);
         
         btnCharacters.setOnAction((e) -> {
-            saveContentPageChildren(contentBox.getChildren());
-            contentBox.getChildren().setAll(characterContent.getChildren());
+            saveContentPageChildren(contentPage.getChildren());
+            contentPage.getChildren().setAll(characterContent.getChildren());
             currentContentPage = ContentPage.CHARACTER;
         });
         btnBackgrounds.setOnAction((e) -> {
-            saveContentPageChildren(contentBox.getChildren());
-            contentBox.getChildren().setAll(backgroundContent.getChildren());
+            saveContentPageChildren(contentPage.getChildren());
+            contentPage.getChildren().setAll(backgroundContent.getChildren());
             currentContentPage = ContentPage.BACKGROUND;
         });
         btnAttributes.setOnAction((e) -> {
-            saveContentPageChildren(contentBox.getChildren());
-            contentBox.getChildren().setAll(attributeContent.getChildren());
+            saveContentPageChildren(contentPage.getChildren());
+            contentPage.getChildren().setAll(attributeContent.getChildren());
             currentContentPage = ContentPage.ATTRIBUTE;
         });
         btnSkills.setOnAction((e) -> {
-            saveContentPageChildren(contentBox.getChildren());
-            contentBox.getChildren().setAll(skillContent.getChildren());
+            saveContentPageChildren(contentPage.getChildren());
+            contentPage.getChildren().setAll(skillContent.getChildren());
             currentContentPage = ContentPage.SKILL;
         });
         
         tabs.relocate(10, 50);
-        contentBox.relocate(200, 50);
-        Pane root = new Pane(tabs, contentBox);
+        contentPage.relocate(200, 50);
+        Pane root = new Pane(tabs, contentPage);
         Scene scene = new Scene(root, windowWidth, windowHeight);
         
         primaryStage.setScene(scene);
