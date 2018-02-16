@@ -5,24 +5,23 @@
  */
 package daeuiot.datatypes;
 
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
-
 /**
  * Backgrounds are stored in this object
+ * Need to change background over to having a culture cause multiple backgrounds have the same culture
  * 
  * @author Daeuiot
  */
 public class CharacterBackground {    
-    //Need to add culture description, not just location description
     private String culture;
     private String location;
-    private String description;
+    private String cultureDescription;
+    private String locationDescription;
 
-    public CharacterBackground(String backgroundCulture, String backgroundLocation, String backgroundDescription) {
+    public CharacterBackground(String backgroundCulture, String backgroundLocation, String backgroundCultureDescription, String backgroundLocationDescription) {
         this.culture = backgroundCulture;
         this.location = backgroundLocation;
-        this.description = backgroundDescription;
+        this.cultureDescription = backgroundCultureDescription;
+        this.locationDescription = backgroundLocationDescription;
     }
 
     public String getCulture() {
@@ -33,8 +32,12 @@ public class CharacterBackground {
         return location;
     }
 
-    public String getDescription() {
-        return description;
+    public String getCultureDescription() {
+        return cultureDescription;
+    }
+
+    public String getLocationDescription() {
+        return locationDescription;
     }
 
     public void setCulture(String culture) {
@@ -45,8 +48,12 @@ public class CharacterBackground {
         this.location = location;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setCultureDescription(String cultureDescription) {
+        this.cultureDescription = cultureDescription;
+    }
+
+    public void setLocationDescription(String locationDescription) {
+        this.locationDescription = locationDescription;
     }
 
     @Override
@@ -54,56 +61,48 @@ public class CharacterBackground {
     {
         return location;
     }
-    
-    /*private StringProperty culture;
-    private StringProperty location;
-    private StringProperty description;
+}
 
-    public CharacterBackground(String culture, String location, String description) {
-        this.culture = new SimpleStringProperty(culture);
-        this.location = new SimpleStringProperty(location);
-        this.description =  new SimpleStringProperty(description);
+//Make an actual class?
+class Culture{
+    private String name;
+    private String description;
+
+    public Culture(String name, String description) {
+        this.name = name;
+        this.description = description;
     }
-    
-    public String getCulture()
-    {
-        return culture.get();
+
+    public String getName() {
+        return name;
     }
-    
-    public String getLocation()
-    {
-        return location.get();
+
+    public String getDescription() {
+        return description;
     }
-    
-    public String getDescription()
-    {
-        return description.get();
+}
+
+//Make it a class or is the location the actualy background?
+class Location{
+    private Culture culture;
+    private String name;
+    private String description;
+
+    public Location(Culture culture, String name, String description) {
+        this.culture = culture;
+        this.name = name;
+        this.description = description;
     }
-    
-    public void setCulture(String culture)
-    {
-        this.culture.set(culture);
-    }
-    
-    public void setLocation(String location)
-    {
-        this.location.set(location);
-    }
-    
-    public void setDescription(String description)
-    {
-        this.description.set(description);
-    }
-    
-    public StringProperty getCultureProperty() {
+
+    public Culture getCulture() {
         return culture;
     }
 
-    public StringProperty getLocationProperty() {
-        return location;
+    public String getName() {
+        return name;
     }
 
-    public StringProperty getDescriptionProperty() {
+    public String getDescription() {
         return description;
-    }*/
+    }
 }
