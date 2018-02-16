@@ -12,8 +12,6 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import javafx.application.Application;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.Node;
@@ -26,6 +24,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import javafx.util.StringConverter;
 
 /**
  *
@@ -168,31 +167,69 @@ public class TSACharacterCreator extends Application {
         Label lbBackgroundName = new Label("Backgrounds");
         lbBackgroundName.relocate(5, 10);
         
-        ComboBox<CharacterBackground> cbBackgrounds = new ComboBox<>();
-        cbBackgrounds.setItems(characterBackgrounds);
-        cbBackgrounds.setVisibleRowCount(6);
-        cbBackgrounds.setPromptText("Choose a background");
-        //Need to add it so the name displayed is the location not the toString method
-        cbBackgrounds.relocate(5, 30);
+        ComboBox<CharacterBackground> cbBackgroundsCulture = new ComboBox<>();
+        cbBackgroundsCulture.setItems(characterBackgrounds);
+        cbBackgroundsCulture.setVisibleRowCount(6);
+        cbBackgroundsCulture.setPromptText(pc.getBackground()!=null?pc.getBackground().getCulture():"Choose a Culture");
+        cbBackgroundsCulture.setConverter(new StringConverter<CharacterBackground>() {
+            @Override
+            public String toString(CharacterBackground object) {
+                return object.getCulture();
+            }
+            @Override
+            public CharacterBackground fromString(String string) {
+                return cbBackgroundsCulture.getItems().stream().filter(b ->
+                b.getCulture().equals(string)).findFirst().orElse(null);
+            }
+        });
+        cbBackgroundsCulture.relocate(5, 30);
+        cbBackgroundsCulture.setMinWidth(275);
         
-        TextField tfBackgroundCulture = new TextField(pc.getBackground().getCulture());
-        tfBackgroundCulture.relocate(5, 70);
-        TextField tfBackgroundLocation = new TextField(pc.getBackground().getLocation());
-        tfBackgroundLocation.relocate(5, 100);
-        TextArea tfBackgroundDescription = new TextArea(pc.getBackground().getDescription());
-        tfBackgroundDescription.setWrapText(true);
-        tfBackgroundDescription.relocate(5, 130);
+        ComboBox<CharacterBackground> cbBackgroundsLocation = new ComboBox<>();
+        //cbBackgroundsLocation.setItems(characterBackgrounds);
+        cbBackgroundsLocation.setVisibleRowCount(6);
+        cbBackgroundsLocation.setPromptText(pc.getBackground()!=null?pc.getBackground().getCulture():"Choose a Location");
+        cbBackgroundsLocation.setConverter(new StringConverter<CharacterBackground>() {
+            @Override
+            public String toString(CharacterBackground object) {
+                return object.getLocation();
+            }
+            @Override
+            public CharacterBackground fromString(String string) {
+                return cbBackgroundsLocation.getItems().stream().filter(b ->
+                b.getLocation().equals(string)).findFirst().orElse(null);
+            }
+        });
+        cbBackgroundsLocation.relocate(300, 30);
+        cbBackgroundsLocation.setMinWidth(275);
         
-        cbBackgrounds.setOnAction((e) -> {
-            pc.setBackground(cbBackgrounds.getValue());
-            //I would prefer to bind the textfields to the backgorund but I just
-            //couldn't get that to work so instead I'm just setting them
-            tfBackgroundCulture.setText(cbBackgrounds.getValue().getCulture());
-            tfBackgroundLocation.setText(cbBackgrounds.getValue().getLocation());
-            tfBackgroundDescription.setText(cbBackgrounds.getValue().getDescription());
+        TextArea tfBackgroundCultureDescription = new TextArea(pc.getBackground()!=null?pc.getBackground().getCultureDescription():"");
+        tfBackgroundCultureDescription.setWrapText(true);
+        tfBackgroundCultureDescription.relocate(5, 65);
+        tfBackgroundCultureDescription.setMaxWidth(275);
+        tfBackgroundCultureDescription.setMinHeight(300);
+        TextArea tfBackgroundLocationDescription = new TextArea(pc.getBackground()!=null?pc.getBackground().getLocationDescription():"");
+        tfBackgroundLocationDescription.setWrapText(true);
+        tfBackgroundLocationDescription.relocate(300, 65);
+        tfBackgroundLocationDescription.setMaxWidth(275);
+        tfBackgroundLocationDescription.setMinHeight(300);
+        
+        cbBackgroundsCulture.setOnAction((e) -> {
+            tfBackgroundCultureDescription.setText(cbBackgroundsCulture.getValue().getCultureDescription());
+            cbBackgroundsLocation.setItems(cbBackgroundsCulture.getItems().filtered(b ->
+                    b.getCulture().equals(cbBackgroundsCulture.getValue().getCulture()))
+            );
+            tfBackgroundLocationDescription.setText("");
         });
         
-        backgroundContent = new Pane(lbBackgroundName,cbBackgrounds,tfBackgroundCulture,tfBackgroundLocation,tfBackgroundDescription);
+        cbBackgroundsLocation.setOnAction((e) -> {
+            if(cbBackgroundsLocation.getValue() == null)
+                return; //This is for when you select a location then change the culture, probably a better way but good enough for now
+            tfBackgroundLocationDescription.setText(cbBackgroundsLocation.getValue().getLocationDescription());
+            pc.setBackground(cbBackgroundsLocation.getValue());
+        });
+        
+        backgroundContent = new Pane(lbBackgroundName,cbBackgroundsCulture,cbBackgroundsLocation,tfBackgroundCultureDescription,tfBackgroundLocationDescription);
     }
     
     private void saveContentPageChildren(ObservableList<Node> children)
@@ -228,10 +265,14 @@ public class TSACharacterCreator extends Application {
         characterBackgrounds.add(new CharacterBackground(
                 "United Republic of Nations",
                 "Republic City",
+                "The youngest of all realms in the world of the Avatar, the" +
+                "Republic has been around for less than 100 years. Its" +
+                "capital is Republic City (formerly the city of Yu Dao).",
                 "Republic City is the capital city of the United Republic of Nations"));
         characterBackgrounds.add(new CharacterBackground(
                 "Earth Kingdom",
                 "Ba Sing Se",
+                "This vast realm spans an entire continent as well as several subsidiary islands",
                 "By far the largest city in the world of Avatar, Ba Sing Se is more of a small country than a mere city"));
     }
     
