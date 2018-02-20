@@ -11,6 +11,7 @@ package daeuiot.datatypes;
  * 
  * @author Daeuiot
  */
+//Need to extend CharacterDataType and change TSACharacterCreator to reflect the changes
 public class CharacterBackground {    
     private String culture;
     private String location;

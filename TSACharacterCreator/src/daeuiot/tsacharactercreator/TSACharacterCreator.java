@@ -7,10 +7,13 @@ package daeuiot.tsacharactercreator;
 
 import daeuiot.datatypes.PlayerCharacter;
 import daeuiot.datatypes.CharacterBackground;
+import daeuiot.datatypes.CharacterDataType;
+import daeuiot.datatypes.Skill;
 import daeuiot.utility.Helper;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
+import java.util.Scanner;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -19,8 +22,11 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -43,6 +49,7 @@ public class TSACharacterCreator extends Application {
     //Data
     ObservableList<PlayerCharacter> playerCharacters;
     ObservableList<CharacterBackground> characterBackgrounds;
+    ObservableList<Skill> characterSkills;
     
     //Content Pages
     Pane characterContent;
@@ -52,8 +59,8 @@ public class TSACharacterCreator extends Application {
     
     @Override
     public void start(Stage primaryStage) {
-        pc = new PlayerCharacter(); //Set a default PC
         loadData();
+        pc = new PlayerCharacter("char01",(Skill[])characterSkills.toArray());
         
         build(primaryStage, 900, 600);
         
@@ -141,7 +148,22 @@ public class TSACharacterCreator extends Application {
         Label lbSkillName = new Label("Skills");
         lbSkillName.relocate(5, 10);
         
-        skillContent = new Pane(lbSkillName);
+        //Setting up the table
+        TableView<Skill> tableView = new TableView<>();
+        TableColumn<Skill, String> nameColumn = new TableColumn<>("Name");
+        nameColumn.setCellValueFactory(new PropertyValueFactory<>("Name"));
+        TableColumn<Skill, String> attributeColumn = new TableColumn<>("Attribute");
+        attributeColumn.setCellValueFactory(new PropertyValueFactory<>("Attribute"));
+        TableColumn<Skill, String> typeColumn = new TableColumn<>("Type");
+        typeColumn.setCellValueFactory(new PropertyValueFactory<>("Type"));
+        tableView.getColumns().clear();
+        tableView.getColumns().addAll(nameColumn,attributeColumn,typeColumn);
+        tableView.setItems(characterSkills);
+        tableView.relocate(5, 30);
+        tableView.setMinWidth(590);
+        tableView.setMaxHeight(190);
+        
+        skillContent = new Pane(lbSkillName,tableView);
     }
     
     private void buildCharacterContentPage()
@@ -274,6 +296,23 @@ public class TSACharacterCreator extends Application {
                 "Ba Sing Se",
                 "This vast realm spans an entire continent as well as several subsidiary islands",
                 "By far the largest city in the world of Avatar, Ba Sing Se is more of a small country than a mere city"));
+        characterSkills = FXCollections.observableArrayList();
+        characterSkills.clear();
+        try
+        {
+            Scanner fin = new Scanner(new File("Data/skills.json"));
+            String text = "";
+            while(fin.hasNextLine())
+            {
+                text += fin.nextLine() + "\n";
+            }
+            fin.close();
+            characterSkills.addAll(Helper.getObjectList(text, Skill.class));
+        }
+        catch(FileNotFoundException e)
+        {
+            System.err.println("LOAD SKILLS - "+e.getMessage());
+        }
     }
     
     /**
