@@ -71,6 +71,6 @@ class PlayerSkill {
     public int getRank()
     {
         return purchasedRanks;
-    }
+    }    
     
 }

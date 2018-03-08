@@ -60,7 +60,8 @@ public class TSACharacterCreator extends Application {
     @Override
     public void start(Stage primaryStage) {
         loadData();
-        pc = new PlayerCharacter("char01",(Skill[])characterSkills.toArray());
+        //pc = new PlayerCharacter("char01",(Skill[])characterSkills.toArray()); //TODO: FIX it can't typecast
+        pc = new PlayerCharacter("char01", characterSkills.toArray(new Skill[characterSkills.size()]));
         
         build(primaryStage, 900, 600);
         
