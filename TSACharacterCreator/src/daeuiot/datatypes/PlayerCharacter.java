@@ -32,45 +32,36 @@ public class PlayerCharacter {
         return fileName;
     }
     
-    public CharacterBackground getBackground() {
+    public CharacterBackground getBackground()
+    {
         return background;
+    }
+    
+    public PlayerSkill[] getSkills()
+    {
+        return skills;
     }
     
     public void setBackground(CharacterBackground background)
     {
         this.background = background;
     }
-}
-
-class PlayerSkill {
-    Skill skill;
-    int purchasedRanks;
-
-    public PlayerSkill(Skill skill) {
-        this.skill = skill;
-        purchasedRanks = 0;
+    
+    public void increaseSkill(PlayerSkill skill)
+    {
+        if(skill.getPurchasedRanks() >= 0 && skill.getPurchasedRanks() < 5)
+        {
+            //xp cost stuff
+            skill.increasePurchasedRank();
+        }
     }
     
-    public void increasePurchasedRank()
+    public void decreaseSkill(PlayerSkill skill)
     {
-        purchasedRanks++;
+        if(skill.getPurchasedRanks() > 0 && skill.getPurchasedRanks() <= 5)
+        {
+            //xp refund stuff
+            skill.decrementPurchasedRank();
+        }
     }
-    
-    public void decrementPurchasedRank()
-    {
-        purchasedRanks--;
-    }
-    
-    public int getPurchasedRanks()
-    {
-        return purchasedRanks;
-    }
-    
-    //used for the total rank of a skill calculated
-    //by purchased and archetypes etc.
-    public int getRank()
-    {
-        return purchasedRanks;
-    }    
-    
 }

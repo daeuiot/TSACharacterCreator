@@ -5,10 +5,7 @@
  */
 package daeuiot.tsacharactercreator;
 
-import daeuiot.datatypes.PlayerCharacter;
-import daeuiot.datatypes.CharacterBackground;
-import daeuiot.datatypes.CharacterDataType;
-import daeuiot.datatypes.Skill;
+import daeuiot.datatypes.*;
 import daeuiot.utility.Helper;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -19,17 +16,12 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import javafx.util.Callback;
 import javafx.util.StringConverter;
 
 /**
@@ -49,7 +41,8 @@ public class TSACharacterCreator extends Application {
     //Data
     ObservableList<PlayerCharacter> playerCharacters;
     ObservableList<CharacterBackground> characterBackgrounds;
-    ObservableList<Skill> characterSkills;
+    ObservableList<Skill> skills;
+    ObservableList<PlayerSkill> characterSkills;
     
     //Content Pages
     Pane characterContent;
@@ -60,8 +53,8 @@ public class TSACharacterCreator extends Application {
     @Override
     public void start(Stage primaryStage) {
         loadData();
-        //pc = new PlayerCharacter("char01",(Skill[])characterSkills.toArray()); //TODO: FIX it can't typecast
-        pc = new PlayerCharacter("char01", characterSkills.toArray(new Skill[characterSkills.size()]));
+        pc = new PlayerCharacter("char01", skills.toArray(new Skill[skills.size()]));
+        characterSkills.addAll(pc.getSkills());
         
         build(primaryStage, 900, 600);
         
@@ -150,15 +143,81 @@ public class TSACharacterCreator extends Application {
         lbSkillName.relocate(5, 10);
         
         //Setting up the table
-        TableView<Skill> tableView = new TableView<>();
-        TableColumn<Skill, String> nameColumn = new TableColumn<>("Name");
+        TableView<PlayerSkill> tableView = new TableView<>();
+        TableColumn<PlayerSkill, String> nameColumn = new TableColumn<>("Name");
         nameColumn.setCellValueFactory(new PropertyValueFactory<>("Name"));
-        TableColumn<Skill, String> attributeColumn = new TableColumn<>("Attribute");
+        TableColumn<PlayerSkill, String> attributeColumn = new TableColumn<>("Attribute");
         attributeColumn.setCellValueFactory(new PropertyValueFactory<>("Attribute"));
-        TableColumn<Skill, String> typeColumn = new TableColumn<>("Type");
+        TableColumn<PlayerSkill, String> typeColumn = new TableColumn<>("Type");
         typeColumn.setCellValueFactory(new PropertyValueFactory<>("Type"));
+        TableColumn<PlayerSkill, String> rankColumn = new TableColumn<>("Rank");
+        rankColumn.setCellValueFactory(new PropertyValueFactory<>("Rank"));
+        
+        TableColumn increaseSkillRank = new TableColumn("");
+        increaseSkillRank.setCellValueFactory(new PropertyValueFactory<>("DUMMY"));
+        Callback<TableColumn<PlayerSkill, String>, TableCell<PlayerSkill, String>> increaseSkillRankCellFactory = new Callback<TableColumn<PlayerSkill, String>, TableCell<PlayerSkill, String>>() {
+            //<editor-fold defaultstate="collapsed" desc="Button">
+            @Override
+            public TableCell call(final TableColumn<PlayerSkill, String> param) {
+                final TableCell<PlayerSkill, String> cell = new TableCell<PlayerSkill, String>() {
+                    
+                    final Button btn = new Button("+");
+                    
+                    @Override
+                    public void updateItem(String item, boolean empty) {
+                        super.updateItem(item, empty);
+                        if (empty) {
+                            setGraphic(null);
+                            setText(null);
+                        } else {
+                            btn.setOnAction(event -> {
+                                PlayerSkill skill = getTableView().getItems().get(getIndex());
+                                pc.increaseSkill(skill);
+                                getTableView().refresh();
+                            });
+                            setGraphic(btn);
+                            setText(null);
+                        }
+                    }
+                };
+                return cell;
+            }
+//</editor-fold>
+        };
+        increaseSkillRank.setCellFactory(increaseSkillRankCellFactory);
+        
+        TableColumn decreaseSkillRank = new TableColumn("");
+        decreaseSkillRank.setCellValueFactory(new PropertyValueFactory<>("DUMMY"));
+        Callback<TableColumn<PlayerSkill, String>, TableCell<PlayerSkill, String>> decreaseSkillRankCellFactory = (final TableColumn<PlayerSkill, String> param) -> {
+             //<editor-fold defaultstate="collapsed" desc="Button">
+            final TableCell<PlayerSkill, String> cell = new TableCell<PlayerSkill, String>() {
+                
+                final Button btn = new Button("-");
+                
+                @Override
+                public void updateItem(String item, boolean empty) {
+                    super.updateItem(item, empty);
+                    if (empty) {
+                        setGraphic(null);
+                        setText(null);
+                    } else {
+                        btn.setOnAction(event -> {
+                            PlayerSkill skill = getTableView().getItems().get(getIndex());
+                            pc.decreaseSkill(skill);
+                            getTableView().refresh();
+                        });
+                        setGraphic(btn);
+                        setText(null);
+                    }
+                }
+            };
+            return cell;
+//</editor-fold>
+        };
+        decreaseSkillRank.setCellFactory(decreaseSkillRankCellFactory);
+        
         tableView.getColumns().clear();
-        tableView.getColumns().addAll(nameColumn,attributeColumn,typeColumn);
+        tableView.getColumns().addAll(nameColumn,attributeColumn,typeColumn,rankColumn,increaseSkillRank,decreaseSkillRank);
         tableView.setItems(characterSkills);
         tableView.relocate(5, 30);
         tableView.setMinWidth(590);
@@ -297,8 +356,8 @@ public class TSACharacterCreator extends Application {
                 "Ba Sing Se",
                 "This vast realm spans an entire continent as well as several subsidiary islands",
                 "By far the largest city in the world of Avatar, Ba Sing Se is more of a small country than a mere city"));
-        characterSkills = FXCollections.observableArrayList();
-        characterSkills.clear();
+        skills = FXCollections.observableArrayList();
+        skills.clear();
         try
         {
             Scanner fin = new Scanner(new File("Data/skills.json"));
@@ -308,12 +367,13 @@ public class TSACharacterCreator extends Application {
                 text += fin.nextLine() + "\n";
             }
             fin.close();
-            characterSkills.addAll(Helper.getObjectList(text, Skill.class));
+            skills.addAll(Helper.getObjectList(text, Skill.class));
         }
         catch(FileNotFoundException e)
         {
             System.err.println("LOAD SKILLS - "+e.getMessage());
         }
+        characterSkills = FXCollections.observableArrayList();
     }
     
     /**

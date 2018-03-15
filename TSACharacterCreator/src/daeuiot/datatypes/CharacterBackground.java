@@ -6,6 +6,8 @@
 package daeuiot.datatypes;
 
 /**
+ * @deprecated CharacterBackground(Culture/Location) makes this class unneeded
+ * 
  * Backgrounds are stored in this object
  * Need to change background over to having a culture cause multiple backgrounds have the same culture
  * 
