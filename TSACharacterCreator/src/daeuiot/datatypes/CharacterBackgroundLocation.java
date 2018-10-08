@@ -9,20 +9,15 @@ package daeuiot.datatypes;
  *
  * @author Daeuiot
  */
-public class CharacterBackgroundLocation {
-    private String location;
-    private String locationDescription;
-
-    public CharacterBackgroundLocation(String location, String locationDescription) {
-        this.location = location;
-        this.locationDescription = locationDescription;
+public class CharacterBackgroundLocation extends CharacterDataType{
+    private String cultureKey;
+    
+    public CharacterBackgroundLocation(String key, String name, String description, String cultureKey) {
+        super(key, name, description);
+        this.cultureKey = cultureKey;
     }
 
-    public String getLocation() {
-        return location;
-    }
-
-    public String getLocationDescription() {
-        return locationDescription;
+    public String getCultureKey() {
+        return cultureKey;
     }
 }

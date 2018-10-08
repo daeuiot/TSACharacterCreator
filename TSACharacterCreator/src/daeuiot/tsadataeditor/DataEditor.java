@@ -26,8 +26,11 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListCell;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.HBox;
@@ -35,6 +38,13 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import javafx.util.Callback;
+
+/**
+ * TODO LIST
+ * ---------
+ * Need to make sure key's are unique when adding things
+ */
 
 /**
  *
@@ -42,14 +52,16 @@ import javafx.stage.Stage;
  */
 public class DataEditor extends Application {
     enum ContentPage {
-        BACKGROUND, ATTRIBUTE, SKILL
+        CULTURE, LOCATION, ATTRIBUTE, SKILL
     }
     
     ContentPage currentContentPage;
     
     //Data
-    ObservableList<CharacterDataType> skills = FXCollections.observableArrayList();
+    ObservableList<CharacterDataType> cultures = FXCollections.observableArrayList();
+    ObservableList<CharacterDataType> locations = FXCollections.observableArrayList();
     ObservableList<CharacterDataType> attributes = FXCollections.observableArrayList();
+    ObservableList<CharacterDataType> skills = FXCollections.observableArrayList();
     
     @Override
     public void start(Stage primaryStage) {
@@ -64,13 +76,15 @@ public class DataEditor extends Application {
     {
         //Set up tabs on the side - used for switching content pages
         VBox tabs = new VBox(); //Used to hold the tabs for the categories ie. Background/Class/Skills/etc.
-        Button btnBackgrounds   = new Button("Backgrounds");
+        Button btnCultures      = new Button("Cultures");
+        Button btnLocations     = new Button("Locations");
         Button btnAttributes    = new Button("Attributes");
         Button btnSkills        = new Button("Skills");
-        tabs.getChildren().addAll(btnBackgrounds, btnAttributes, btnSkills);
+        tabs.getChildren().addAll(btnCultures, btnLocations, btnAttributes, btnSkills);
         tabs.setStyle("-fx-spacing: 10; -fx-alignment: center; -fx-padding: 10; -fx-background-color: pink");
         tabs.setPrefWidth(100);
-        btnBackgrounds.setMinWidth(tabs.getPrefWidth());
+        btnCultures.setMinWidth(tabs.getPrefWidth());
+        btnLocations.setMinWidth(tabs.getPrefWidth());
         btnAttributes.setMinWidth(tabs.getPrefWidth());
         btnSkills.setMinWidth(tabs.getPrefWidth());
         tabs.setMaxSize(150, windowHeight);
@@ -113,17 +127,29 @@ public class DataEditor extends Application {
         contentPage.setMinSize(windowWidth-145, windowHeight-100);
         
         //Switching currentData
-        /*btnBackgrounds.setOnAction((e) -> {
-            saveContentPageChildren(contentPage.getChildren());
-            contentPage.getChildren().setAll(backgroundContent.getChildren());
-            currentContentPage = ContentPage.BACKGROUND;
-        });*/
+        btnCultures.setOnAction((e) -> {
+            btnAdd.setOnAction((ev) -> {
+                cultureAdd();
+            });
+            lbTabName.setText("Cultures");
+            tableView.setItems(cultures);
+            currentContentPage = ContentPage.CULTURE;
+        });
+        btnLocations.setOnAction((e) -> {
+            btnAdd.setOnAction((ev) -> {
+                locationAdd();
+            });
+            lbTabName.setText("Locations");
+            tableView.setItems(locations);
+            currentContentPage = ContentPage.LOCATION;
+        });
         btnAttributes.setOnAction((e) -> {
             btnAdd.setOnAction((ev) -> {
                 attributeAdd();
             });
             lbTabName.setText("Attributes");
             tableView.setItems(attributes);
+            currentContentPage = ContentPage.ATTRIBUTE;
         });
         btnSkills.setOnAction((e) -> {
             btnAdd.setOnAction((ev) -> {
@@ -131,6 +157,7 @@ public class DataEditor extends Application {
             });
             lbTabName.setText("Skills");
             tableView.setItems(skills);
+            currentContentPage = ContentPage.SKILL;
         });
         
         tabs.relocate(5, 50);
@@ -182,7 +209,7 @@ public class DataEditor extends Application {
             btnAdd2.setDisable(tfName.getText().isEmpty() || cbType.getValue() == null || cbAttribute.getValue() == null);
         });    
 
-        Platform.runLater(() -> tfName.requestFocus());
+        //Platform.runLater(() -> tfName.requestFocus());
 
         dialog.setResultConverter(dialogButton ->
         {
@@ -245,7 +272,7 @@ public class DataEditor extends Application {
             btnAdd2.setDisable(tfName.getText().isEmpty() || cbType.getValue() == null || cbAttribute.getValue() == null);
         });    
 
-        Platform.runLater(() -> tfName.requestFocus());
+        //Platform.runLater(() -> tfName.requestFocus());
 
         dialog.setResultConverter(dialogButton ->
         {
@@ -266,6 +293,153 @@ public class DataEditor extends Application {
         });
     }
     
+    void cultureAdd()
+    {
+        //Dialog might not be the best option, just an option
+        Dialog<CharacterBackgroundCulture> dialog = new Dialog<>();
+        dialog.setTitle("Add Culture");
+        dialog.setHeaderText(null);
+        dialog.setContentText(null);
+        dialog.setGraphic(null);
+
+        TextField tfKey = new TextField();
+        tfKey.setPromptText("Key");
+
+        TextField tfName = new TextField();
+        tfName.setPromptText("Name");
+        
+        TextArea taDescription = new TextArea();
+        taDescription.setPromptText("Description");
+        taDescription.setWrapText(true);
+
+        VBox vbox = new VBox(tfKey, tfName, taDescription);
+        dialog.getDialogPane().setContent(vbox);
+
+        ButtonType btnAddType = new ButtonType("Add", ButtonBar.ButtonData.OK_DONE);
+        dialog.getDialogPane().getButtonTypes().addAll(btnAddType, ButtonType.CANCEL);
+
+        Node btnAdd2 = dialog.getDialogPane().lookupButton(btnAddType);
+        btnAdd2.setDisable(true);
+
+        tfKey.textProperty().addListener((e2) -> {
+            btnAdd2.setDisable(tfKey.getText().isEmpty() || tfName.getText().isEmpty() || taDescription.getText().isEmpty());
+        });                
+        tfName.textProperty().addListener((e2) -> {
+            btnAdd2.setDisable(tfKey.getText().isEmpty() || tfName.getText().isEmpty() || taDescription.getText().isEmpty());
+        });    
+        taDescription.textProperty().addListener((e2) -> {
+            btnAdd2.setDisable(tfKey.getText().isEmpty() || tfName.getText().isEmpty() || taDescription.getText().isEmpty());
+        });    
+
+        //Platform.runLater(() -> tfName.requestFocus());
+
+        dialog.setResultConverter(dialogButton ->
+        {
+           if(dialogButton == btnAddType)
+           {
+               return new CharacterBackgroundCulture(tfKey.getText(), tfName.getText(), taDescription.getText());
+           }
+           return null;
+        });
+
+        Optional<CharacterBackgroundCulture> result = dialog.showAndWait();
+        result.ifPresent(culture ->
+        {
+            if(culture != null)
+            {
+                cultures.add(culture);
+            }
+        });
+    }
+    
+    void locationAdd()
+    {
+        //Dialog might not be the best option, just an option
+        Dialog<CharacterBackgroundLocation> dialog = new Dialog<>();
+        dialog.setTitle("Add Location");
+        dialog.setHeaderText(null);
+        dialog.setContentText(null);
+        dialog.setGraphic(null);
+        
+        TextField tfKey = new TextField();
+        tfKey.setPromptText("Key");
+
+        TextField tfName = new TextField();
+        tfName.setPromptText("Name");
+        
+        TextArea taDescription = new TextArea();
+        taDescription.setPromptText("Description");
+        taDescription.setWrapText(true);
+
+        ComboBox<CharacterDataType> cbCulture = new ComboBox<>();
+        ObservableList<CharacterDataType> items = cbCulture.getItems();
+        for (int i = 0; i < cultures.size(); i++) {
+            items.add(cultures.get(i));
+        }
+        cbCulture.setPromptText("Choose a Culture");
+        cbCulture.setMaxWidth(Double.MAX_VALUE);
+        Callback<ListView<CharacterDataType>, ListCell<CharacterDataType>> cellFactory = new Callback<ListView<CharacterDataType>, ListCell<CharacterDataType>>() {
+            @Override
+            public ListCell<CharacterDataType> call(ListView<CharacterDataType> c) {
+                return new ListCell<CharacterDataType>() {
+                    @Override
+                    protected void updateItem(CharacterDataType item, boolean empty)
+                    {
+                        super.updateItem(item, empty);
+                        if(item == null || empty)
+                            setGraphic(null);
+                        else
+                            setText(item.getName());
+                    }
+                };
+            }
+        };
+        cbCulture.setButtonCell(cellFactory.call(null));
+        cbCulture.setCellFactory(cellFactory);
+
+        VBox vbox = new VBox(tfKey, tfName, taDescription, cbCulture);
+        dialog.getDialogPane().setContent(vbox);
+
+        ButtonType btnAddType = new ButtonType("Add", ButtonBar.ButtonData.OK_DONE);
+        dialog.getDialogPane().getButtonTypes().addAll(btnAddType, ButtonType.CANCEL);
+
+        Node btnAdd2 = dialog.getDialogPane().lookupButton(btnAddType);
+        btnAdd2.setDisable(true);
+
+        tfKey.textProperty().addListener((e2) -> {
+            btnAdd2.setDisable(tfKey.getText().isEmpty() || tfName.getText().isEmpty() || taDescription.getText().isEmpty() || cbCulture.getValue() == null);
+        });
+        tfName.textProperty().addListener((e2) -> {
+            btnAdd2.setDisable(tfKey.getText().isEmpty() || tfName.getText().isEmpty() || taDescription.getText().isEmpty() || cbCulture.getValue() == null);
+        });
+        taDescription.textProperty().addListener((e2) -> {
+            btnAdd2.setDisable(tfKey.getText().isEmpty() || tfName.getText().isEmpty() || taDescription.getText().isEmpty() || cbCulture.getValue() == null);
+        });
+        cbCulture.valueProperty().addListener((e2) -> {
+            btnAdd2.setDisable(tfKey.getText().isEmpty() || tfName.getText().isEmpty() || taDescription.getText().isEmpty() || cbCulture.getValue() == null);
+        });
+
+        //Platform.runLater(() -> tfName.requestFocus());
+
+        dialog.setResultConverter(dialogButton ->
+        {
+           if(dialogButton == btnAddType)
+           {
+               return new CharacterBackgroundLocation(tfKey.getText(), tfName.getText(), taDescription.getText(), cbCulture.getValue().getKey());
+           }
+           return null;
+        });
+
+        Optional<CharacterBackgroundLocation> result = dialog.showAndWait();
+        result.ifPresent(location ->
+        {
+            if(location != null)
+            {
+                locations.add(location);
+            }
+        });
+    }
+    
     void loadData()
     {
         try
@@ -274,11 +448,31 @@ public class DataEditor extends Application {
             String text = "";
             while(fin.hasNextLine())
             {
-                text += fin.nextLine() + "\n";
+                text += fin.nextLine();
             }
             fin.close();
             skills.clear();
             skills.addAll(Helper.getObjectList(text, Skill.class));
+            
+            fin = new Scanner(new File("Data/cultures.json"));
+            text = "";
+            while(fin.hasNextLine())
+            {
+                text += fin.nextLine();
+            }
+            fin.close();
+            cultures.clear();
+            cultures.addAll(Helper.getObjectList(text, CharacterBackgroundCulture.class));
+            
+            fin = new Scanner(new File("Data/locations.json"));
+            text = "";
+            while(fin.hasNextLine())
+            {
+                text += fin.nextLine();
+            }
+            fin.close();
+            locations.clear();
+            locations.addAll(Helper.getObjectList(text, CharacterBackgroundLocation.class));
         }
         catch(FileNotFoundException e)
         {
@@ -290,9 +484,22 @@ public class DataEditor extends Application {
     {
         try
         {
-            PrintWriter fout = new PrintWriter(new File("Data/skills.json"));
-            fout.print(Helper.getJSONList(skills, CharacterDataType.class));
-            fout.close();
+            if(currentContentPage == ContentPage.SKILL)
+            {
+                PrintWriter fout = new PrintWriter(new File("Data/skills.json"));
+                fout.print(Helper.getJSONList(skills, CharacterDataType.class));
+                fout.close();
+            }else if(currentContentPage == ContentPage.CULTURE)
+            {
+                PrintWriter fout = new PrintWriter(new File("Data/cultures.json"));
+                fout.print(Helper.getJSONList(cultures, CharacterDataType.class));
+                fout.close();
+            }else if(currentContentPage == ContentPage.LOCATION)
+            {
+                PrintWriter fout = new PrintWriter(new File("Data/locations.json"));
+                fout.print(Helper.getJSONList(locations, CharacterDataType.class));
+                fout.close();
+            }
         }
         catch(FileNotFoundException e)
         {

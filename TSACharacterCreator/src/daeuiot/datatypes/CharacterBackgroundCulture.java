@@ -9,20 +9,8 @@ package daeuiot.datatypes;
  *
  * @author Daeuiot
  */
-public class CharacterBackgroundCulture { 
-    private String culture;
-    private String cultureDescription;
-
-    public CharacterBackgroundCulture(String culture, String cultureDescription) {
-        this.culture = culture;
-        this.cultureDescription = cultureDescription;
-    }
-
-    public String getCulture() {
-        return culture;
-    }
-
-    public String getCultureDescription() {
-        return cultureDescription;
+public class CharacterBackgroundCulture extends CharacterDataType{ 
+    public CharacterBackgroundCulture(String key, String name, String description) {
+        super(key, name, description);
     }
 }

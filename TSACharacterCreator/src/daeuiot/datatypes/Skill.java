@@ -20,7 +20,7 @@ public class Skill extends CharacterDataType{
     }
 
     public Skill(String name, String type, String attribute, String description) {
-        super("KEY", name, description);
+        super("NULLKEY", name, description);
         this.type = type;
         this.attribute = attribute;
     }
