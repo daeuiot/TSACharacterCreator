@@ -13,7 +13,7 @@ package daeuiot.datatypes;
  */
 public class PlayerCharacter {
     private String fileName;
-    private CharacterBackground background;
+    private CharacterBackgroundLocation background;
     private PlayerSkill[] skills;
     
     public PlayerCharacter(String fileName, Skill[] skills)
@@ -32,7 +32,7 @@ public class PlayerCharacter {
         return fileName;
     }
     
-    public CharacterBackground getBackground()
+    public CharacterBackgroundLocation getBackground()
     {
         return background;
     }
@@ -42,7 +42,7 @@ public class PlayerCharacter {
         return skills;
     }
     
-    public void setBackground(CharacterBackground background)
+    public void setBackground(CharacterBackgroundLocation background)
     {
         this.background = background;
     }

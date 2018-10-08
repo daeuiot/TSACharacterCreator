@@ -112,10 +112,12 @@ public class DataEditor extends Application {
         TableView<CharacterDataType> tableView = new TableView<>();
         TableColumn<CharacterDataType, String> keyColumn = new TableColumn<>("Key");
         TableColumn<CharacterDataType, String> nameColumn = new TableColumn<>("Name");
+        TableColumn<CharacterDataType, String> typeColumn = new TableColumn<>("Type");
         keyColumn.setCellValueFactory(new PropertyValueFactory<>("Key"));
         nameColumn.setCellValueFactory(new PropertyValueFactory<>("Name"));
+        typeColumn.setCellValueFactory(new PropertyValueFactory<>("Type"));
         tableView.getColumns().clear();
-        tableView.getColumns().addAll(keyColumn, nameColumn);
+        tableView.getColumns().addAll(keyColumn, nameColumn, typeColumn);
         tableView.setItems(skills);
         keyColumn.setMinWidth(100);
         nameColumn.setMinWidth(tableView.getWidth()+150);
@@ -134,6 +136,7 @@ public class DataEditor extends Application {
             lbTabName.setText("Cultures");
             tableView.setItems(cultures);
             currentContentPage = ContentPage.CULTURE;
+            typeColumn.setVisible(false);
         });
         btnLocations.setOnAction((e) -> {
             btnAdd.setOnAction((ev) -> {
@@ -142,6 +145,7 @@ public class DataEditor extends Application {
             lbTabName.setText("Locations");
             tableView.setItems(locations);
             currentContentPage = ContentPage.LOCATION;
+            typeColumn.setVisible(false);
         });
         btnAttributes.setOnAction((e) -> {
             btnAdd.setOnAction((ev) -> {
@@ -150,6 +154,7 @@ public class DataEditor extends Application {
             lbTabName.setText("Attributes");
             tableView.setItems(attributes);
             currentContentPage = ContentPage.ATTRIBUTE;
+            typeColumn.setVisible(false);
         });
         btnSkills.setOnAction((e) -> {
             btnAdd.setOnAction((ev) -> {
@@ -158,6 +163,7 @@ public class DataEditor extends Application {
             lbTabName.setText("Skills");
             tableView.setItems(skills);
             currentContentPage = ContentPage.SKILL;
+            typeColumn.setVisible(true);
         });
         
         tabs.relocate(5, 50);
@@ -259,17 +265,17 @@ public class DataEditor extends Application {
         ButtonType btnAddType = new ButtonType("Add", ButtonBar.ButtonData.OK_DONE);
         dialog.getDialogPane().getButtonTypes().addAll(btnAddType, ButtonType.CANCEL);
 
-        Node btnAdd2 = dialog.getDialogPane().lookupButton(btnAddType);
-        btnAdd2.setDisable(true);
+        Node btnAdd = dialog.getDialogPane().lookupButton(btnAddType);
+        btnAdd.setDisable(true);
 
         tfName.textProperty().addListener((e2) -> {
-            btnAdd2.setDisable(tfName.getText().isEmpty() || cbType.getValue() == null || cbAttribute.getValue() == null);
+            btnAdd.setDisable(tfName.getText().isEmpty() || cbType.getValue() == null || cbAttribute.getValue() == null);
         });                
         cbType.valueProperty().addListener((e2) -> {
-            btnAdd2.setDisable(tfName.getText().isEmpty() || cbType.getValue() == null || cbAttribute.getValue() == null);
+            btnAdd.setDisable(tfName.getText().isEmpty() || cbType.getValue() == null || cbAttribute.getValue() == null);
         });    
         cbAttribute.valueProperty().addListener((e2) -> {
-            btnAdd2.setDisable(tfName.getText().isEmpty() || cbType.getValue() == null || cbAttribute.getValue() == null);
+            btnAdd.setDisable(tfName.getText().isEmpty() || cbType.getValue() == null || cbAttribute.getValue() == null);
         });    
 
         //Platform.runLater(() -> tfName.requestFocus());
@@ -484,21 +490,27 @@ public class DataEditor extends Application {
     {
         try
         {
-            if(currentContentPage == ContentPage.SKILL)
-            {
-                PrintWriter fout = new PrintWriter(new File("Data/skills.json"));
-                fout.print(Helper.getJSONList(skills, CharacterDataType.class));
-                fout.close();
-            }else if(currentContentPage == ContentPage.CULTURE)
-            {
-                PrintWriter fout = new PrintWriter(new File("Data/cultures.json"));
-                fout.print(Helper.getJSONList(cultures, CharacterDataType.class));
-                fout.close();
-            }else if(currentContentPage == ContentPage.LOCATION)
-            {
-                PrintWriter fout = new PrintWriter(new File("Data/locations.json"));
-                fout.print(Helper.getJSONList(locations, CharacterDataType.class));
-                fout.close();
+            switch (currentContentPage) {
+                case SKILL:{
+                        PrintWriter fout = new PrintWriter(new File("Data/skills.json"));
+                        fout.print(Helper.getJSONList(skills, CharacterDataType.class));
+                        fout.close();
+                        break;
+                    }
+                case CULTURE:{
+                        PrintWriter fout = new PrintWriter(new File("Data/cultures.json"));
+                        fout.print(Helper.getJSONList(cultures, CharacterDataType.class));
+                        fout.close();
+                        break;
+                    }
+                case LOCATION:{
+                        PrintWriter fout = new PrintWriter(new File("Data/locations.json"));
+                        fout.print(Helper.getJSONList(locations, CharacterDataType.class));
+                        fout.close();
+                        break;
+                    }
+                default:
+                    break;
             }
         }
         catch(FileNotFoundException e)
