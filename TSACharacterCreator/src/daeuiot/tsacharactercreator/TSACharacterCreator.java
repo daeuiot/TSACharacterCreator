@@ -39,10 +39,11 @@ public class TSACharacterCreator extends Application {
     ContentPage currentContentPage;
     
     //Data
-    ObservableList<PlayerCharacter> playerCharacters;
-    ObservableList<CharacterBackground> characterBackgrounds;
-    ObservableList<Skill> skills;
-    ObservableList<PlayerSkill> characterSkills;
+    ObservableList<PlayerCharacter> playerCharacters = FXCollections.observableArrayList();
+    ObservableList<CharacterDataType> cultures = FXCollections.observableArrayList();
+    ObservableList<CharacterDataType> locations = FXCollections.observableArrayList();
+    ObservableList<Skill> skills = FXCollections.observableArrayList();
+    ObservableList<PlayerSkill> characterSkills = FXCollections.observableArrayList();
     
     //Content Pages
     Pane characterContent;
@@ -249,57 +250,57 @@ public class TSACharacterCreator extends Application {
         Label lbBackgroundName = new Label("Backgrounds");
         lbBackgroundName.relocate(5, 10);
         
-        ComboBox<CharacterBackground> cbBackgroundsCulture = new ComboBox<>();
-        cbBackgroundsCulture.setItems(characterBackgrounds);
+        ComboBox<CharacterDataType> cbBackgroundsCulture = new ComboBox<>();
+        cbBackgroundsCulture.setItems(cultures);
         cbBackgroundsCulture.setVisibleRowCount(6);
-        cbBackgroundsCulture.setPromptText(pc.getBackground()!=null?pc.getBackground().getCulture():"Choose a Culture");
-        cbBackgroundsCulture.setConverter(new StringConverter<CharacterBackground>() {
+        cbBackgroundsCulture.setPromptText(pc.getBackground()!=null?getCharacterBackgroundCulture(pc.getBackground().getCultureKey()).getName():"Choose a Culture");
+        cbBackgroundsCulture.setConverter(new StringConverter<CharacterDataType>() {
             @Override
-            public String toString(CharacterBackground object) {
-                return object.getCulture();
+            public String toString(CharacterDataType object) {
+                return object.getName();
             }
             @Override
-            public CharacterBackground fromString(String string) {
+            public CharacterDataType fromString(String string) {
                 return cbBackgroundsCulture.getItems().stream().filter(b ->
-                b.getCulture().equals(string)).findFirst().orElse(null);
+                b.getName().equals(string)).findFirst().orElse(null);
             }
         });
         cbBackgroundsCulture.relocate(5, 30);
         cbBackgroundsCulture.setMinWidth(275);
         
-        ComboBox<CharacterBackground> cbBackgroundsLocation = new ComboBox<>();
+        ComboBox<CharacterDataType> cbBackgroundsLocation = new ComboBox<>();
         //cbBackgroundsLocation.setItems(characterBackgrounds);
         cbBackgroundsLocation.setVisibleRowCount(6);
-        cbBackgroundsLocation.setPromptText(pc.getBackground()!=null?pc.getBackground().getCulture():"Choose a Location");
-        cbBackgroundsLocation.setConverter(new StringConverter<CharacterBackground>() {
+        cbBackgroundsLocation.setPromptText(pc.getBackground()!=null?pc.getBackground().getName():"Choose a Location");
+        cbBackgroundsLocation.setConverter(new StringConverter<CharacterDataType>() {
             @Override
-            public String toString(CharacterBackground object) {
-                return object.getLocation();
+            public String toString(CharacterDataType object) {
+                return object.getName();
             }
             @Override
-            public CharacterBackground fromString(String string) {
+            public CharacterDataType fromString(String string) {
                 return cbBackgroundsLocation.getItems().stream().filter(b ->
-                b.getLocation().equals(string)).findFirst().orElse(null);
+                b.getName().equals(string)).findFirst().orElse(null);
             }
         });
         cbBackgroundsLocation.relocate(300, 30);
         cbBackgroundsLocation.setMinWidth(275);
         
-        TextArea tfBackgroundCultureDescription = new TextArea(pc.getBackground()!=null?pc.getBackground().getCultureDescription():"");
+        TextArea tfBackgroundCultureDescription = new TextArea(pc.getBackground()!=null?getCharacterBackgroundCulture(pc.getBackground().getCultureKey()).getDescription():"");
         tfBackgroundCultureDescription.setWrapText(true);
         tfBackgroundCultureDescription.relocate(5, 65);
         tfBackgroundCultureDescription.setMaxWidth(275);
         tfBackgroundCultureDescription.setMinHeight(300);
-        TextArea tfBackgroundLocationDescription = new TextArea(pc.getBackground()!=null?pc.getBackground().getLocationDescription():"");
+        TextArea tfBackgroundLocationDescription = new TextArea(pc.getBackground()!=null?pc.getBackground().getDescription():"");
         tfBackgroundLocationDescription.setWrapText(true);
         tfBackgroundLocationDescription.relocate(300, 65);
         tfBackgroundLocationDescription.setMaxWidth(275);
         tfBackgroundLocationDescription.setMinHeight(300);
         
         cbBackgroundsCulture.setOnAction((e) -> {
-            tfBackgroundCultureDescription.setText(cbBackgroundsCulture.getValue().getCultureDescription());
-            cbBackgroundsLocation.setItems(cbBackgroundsCulture.getItems().filtered(b ->
-                    b.getCulture().equals(cbBackgroundsCulture.getValue().getCulture()))
+            tfBackgroundCultureDescription.setText(cbBackgroundsCulture.getValue().getDescription());
+            cbBackgroundsLocation.setItems(locations.filtered(location ->
+                    ((CharacterBackgroundLocation)location).getCultureKey().equals(cbBackgroundsCulture.getValue().getKey()))
             );
             tfBackgroundLocationDescription.setText("");
         });
@@ -307,8 +308,8 @@ public class TSACharacterCreator extends Application {
         cbBackgroundsLocation.setOnAction((e) -> {
             if(cbBackgroundsLocation.getValue() == null)
                 return; //This is for when you select a location then change the culture, probably a better way but good enough for now
-            tfBackgroundLocationDescription.setText(cbBackgroundsLocation.getValue().getLocationDescription());
-            pc.setBackground(cbBackgroundsLocation.getValue());
+            tfBackgroundLocationDescription.setText(cbBackgroundsLocation.getValue().getDescription());
+            pc.setBackground((CharacterBackgroundLocation)cbBackgroundsLocation.getValue());
         });
         
         backgroundContent = new Pane(lbBackgroundName,cbBackgroundsCulture,cbBackgroundsLocation,tfBackgroundCultureDescription,tfBackgroundLocationDescription);
@@ -341,23 +342,11 @@ public class TSACharacterCreator extends Application {
      */
     private void loadData()
     {
-        playerCharacters = FXCollections.observableArrayList();
-        characterBackgrounds = FXCollections.observableArrayList();
-        characterBackgrounds.clear();
-        characterBackgrounds.add(new CharacterBackground(
-                "United Republic of Nations",
-                "Republic City",
-                "The youngest of all realms in the world of the Avatar, the" +
-                "Republic has been around for less than 100 years. Its" +
-                "capital is Republic City (formerly the city of Yu Dao).",
-                "Republic City is the capital city of the United Republic of Nations"));
-        characterBackgrounds.add(new CharacterBackground(
-                "Earth Kingdom",
-                "Ba Sing Se",
-                "This vast realm spans an entire continent as well as several subsidiary islands",
-                "By far the largest city in the world of Avatar, Ba Sing Se is more of a small country than a mere city"));
-        skills = FXCollections.observableArrayList();
+        playerCharacters.clear();
+        cultures.clear();
+        locations.clear();
         skills.clear();
+        characterSkills.clear();
         try
         {
             Scanner fin = new Scanner(new File("Data/skills.json"));
@@ -373,7 +362,38 @@ public class TSACharacterCreator extends Application {
         {
             System.err.println("LOAD SKILLS - "+e.getMessage());
         }
-        characterSkills = FXCollections.observableArrayList();
+        
+        try
+        {
+            Scanner fin = new Scanner(new File("Data/cultures.json"));
+            String text = "";
+            while(fin.hasNextLine())
+            {
+                text += fin.nextLine() + "\n";
+            }
+            fin.close();
+            cultures.addAll(Helper.getObjectList(text, CharacterBackgroundCulture.class));
+        }
+        catch(FileNotFoundException e)
+        {
+            System.err.println("LOAD CULTURES - "+e.getMessage());
+        }
+        
+        try
+        {
+            Scanner fin = new Scanner(new File("Data/locations.json"));
+            String text = "";
+            while(fin.hasNextLine())
+            {
+                text += fin.nextLine() + "\n";
+            }
+            fin.close();
+            locations.addAll(Helper.getObjectList(text, CharacterBackgroundLocation.class));
+        }
+        catch(FileNotFoundException e)
+        {
+            System.err.println("LOAD LOCATIONS - "+e.getMessage());
+        }
     }
     
     /**
@@ -396,6 +416,21 @@ public class TSACharacterCreator extends Application {
         {
             System.err.println("SAVE CHARACTER - "+e.getMessage());
         }
+    }
+    
+    /**
+     * Finds the culture with a given key
+     * 
+     * @param key Key of culture you want
+     * @return The culture with given key or null otherwise
+     */
+    CharacterBackgroundCulture getCharacterBackgroundCulture(String key)
+    {
+        for (int i = 0; i < cultures.size(); i++) {
+            if(cultures.get(i).getKey().equals(key))
+                return (CharacterBackgroundCulture)cultures.get(i);
+        }
+        return null;
     }
     
     /**

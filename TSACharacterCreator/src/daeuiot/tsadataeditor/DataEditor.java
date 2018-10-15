@@ -14,6 +14,8 @@ import java.util.Optional;
 import java.util.Scanner;
 import javafx.application.Application;
 import javafx.application.Platform;
+import javafx.beans.property.ReadOnlyObjectWrapper;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -104,7 +106,7 @@ public class DataEditor extends Application {
         });
         Button btnAdd = new Button("ADD");
         btnAdd.relocate(105, 25);
-        btnAdd.setOnAction((e) -> {
+        btnAdd.setOnAction((e) -> { 
             skillAdd();
         });
         
@@ -113,15 +115,22 @@ public class DataEditor extends Application {
         TableColumn<CharacterDataType, String> keyColumn = new TableColumn<>("Key");
         TableColumn<CharacterDataType, String> nameColumn = new TableColumn<>("Name");
         TableColumn<CharacterDataType, String> typeColumn = new TableColumn<>("Type");
+        TableColumn<CharacterDataType, String> cultureColumn = new TableColumn<>("Culture");
         keyColumn.setCellValueFactory(new PropertyValueFactory<>("Key"));
         nameColumn.setCellValueFactory(new PropertyValueFactory<>("Name"));
         typeColumn.setCellValueFactory(new PropertyValueFactory<>("Type"));
+        cultureColumn.setCellValueFactory((TableColumn.CellDataFeatures<CharacterDataType, String> param) -> {
+            if(param.getValue() instanceof CharacterBackgroundLocation)
+                return new ReadOnlyObjectWrapper<>(getCharacterBackgroundCulture(((CharacterBackgroundLocation)param.getValue()).getCultureKey()).getName());
+            return new ReadOnlyObjectWrapper<>("ERROR");
+        });
         tableView.getColumns().clear();
-        tableView.getColumns().addAll(keyColumn, nameColumn, typeColumn);
+        tableView.getColumns().addAll(keyColumn, nameColumn, typeColumn, cultureColumn);
         tableView.setItems(skills);
-        keyColumn.setMinWidth(100);
-        nameColumn.setMinWidth(tableView.getWidth()+150);
+        //keyColumn.setMinWidth(100);
+        //nameColumn.setMinWidth(tableView.getWidth()+100);
         tableView.relocate(5, 55);
+        tableView.setMinWidth(windowWidth-155);
         
         Pane contentPage = new Pane(lbTabName, btnSave, btnLoad, btnAdd,tableView);
         currentContentPage = ContentPage.SKILL;
@@ -137,6 +146,7 @@ public class DataEditor extends Application {
             tableView.setItems(cultures);
             currentContentPage = ContentPage.CULTURE;
             typeColumn.setVisible(false);
+            cultureColumn.setVisible(false);
         });
         btnLocations.setOnAction((e) -> {
             btnAdd.setOnAction((ev) -> {
@@ -146,6 +156,7 @@ public class DataEditor extends Application {
             tableView.setItems(locations);
             currentContentPage = ContentPage.LOCATION;
             typeColumn.setVisible(false);
+            cultureColumn.setVisible(true);
         });
         btnAttributes.setOnAction((e) -> {
             btnAdd.setOnAction((ev) -> {
@@ -155,6 +166,7 @@ public class DataEditor extends Application {
             tableView.setItems(attributes);
             currentContentPage = ContentPage.ATTRIBUTE;
             typeColumn.setVisible(false);
+            cultureColumn.setVisible(false);
         });
         btnSkills.setOnAction((e) -> {
             btnAdd.setOnAction((ev) -> {
@@ -164,6 +176,7 @@ public class DataEditor extends Application {
             tableView.setItems(skills);
             currentContentPage = ContentPage.SKILL;
             typeColumn.setVisible(true);
+            cultureColumn.setVisible(false);
         });
         
         tabs.relocate(5, 50);
@@ -172,6 +185,8 @@ public class DataEditor extends Application {
         
         Scene scene = new Scene(root, windowWidth, windowHeight);
         primaryStage.setScene(scene);
+        
+        btnCultures.fire();
     }
     
     private void skillAdd()
@@ -517,6 +532,15 @@ public class DataEditor extends Application {
         {
             System.err.println("SAVE DATA - "+e.getMessage());
         }
+    }
+    
+    CharacterBackgroundCulture getCharacterBackgroundCulture(String key)
+    {
+        for (int i = 0; i < cultures.size(); i++) {
+            if(cultures.get(i).getKey().equals(key))
+                return (CharacterBackgroundCulture)cultures.get(i);
+        }
+        return null;
     }
 
     /**
