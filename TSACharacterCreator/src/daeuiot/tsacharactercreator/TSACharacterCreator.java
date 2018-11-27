@@ -10,6 +10,7 @@ import daeuiot.utility.Helper;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
+import java.util.List;
 import java.util.Scanner;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
@@ -53,11 +54,16 @@ public class TSACharacterCreator extends Application {
     
     @Override
     public void start(Stage primaryStage) {
+        List<String> args = getParameters().getRaw();
+        //Make an argument class that holes all the parameters, with default values if not read
+        
         loadData();
         pc = new PlayerCharacter("char01", skills.toArray(new Skill[skills.size()]));
         characterSkills.addAll(pc.getSkills());
         
-        build(primaryStage, 900, 600);
+        int x = 900; //These are gonna be changable by argument later
+        int y = 600; //but It's currently designed for 900x600 anyway
+        build(primaryStage, x, y);
         
         primaryStage.setTitle("Avatar: The Second Age - Character Creator");
         primaryStage.show();
@@ -412,7 +418,7 @@ public class TSACharacterCreator extends Application {
             PrintWriter fout = new PrintWriter(new File("Characters/"+pc.getFileName()+".json"));
             fout.println(outText);
             fout.close();
-        }catch(FileNotFoundException e)
+        }catch(Exception e)
         {
             System.err.println("SAVE CHARACTER - "+e.getMessage());
         }
