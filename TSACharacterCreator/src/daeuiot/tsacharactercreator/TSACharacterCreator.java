@@ -43,7 +43,7 @@ public class TSACharacterCreator extends Application {
     ObservableList<PlayerCharacter> playerCharacters = FXCollections.observableArrayList();
     ObservableList<CharacterDataType> cultures = FXCollections.observableArrayList();
     ObservableList<CharacterDataType> locations = FXCollections.observableArrayList();
-    ObservableList<Skill> skills = FXCollections.observableArrayList();
+    ObservableList<CharacterDataType> skills = FXCollections.observableArrayList();
     ObservableList<PlayerSkill> characterSkills = FXCollections.observableArrayList();
     
     //Content Pages
@@ -385,7 +385,9 @@ public class TSACharacterCreator extends Application {
             System.err.println("LOAD CULTURES - "+e.getMessage());
         }
         
-        try
+        
+        loadFromFile("locations",locations,CharacterBackgroundLocation.class);
+        /*try
         {
             Scanner fin = new Scanner(new File("Data/locations.json"));
             String text = "";
@@ -399,6 +401,25 @@ public class TSACharacterCreator extends Application {
         catch(FileNotFoundException e)
         {
             System.err.println("LOAD LOCATIONS - "+e.getMessage());
+        }*/
+    }
+    
+    private static <T> void loadFromFile(String fileType, ObservableList<T> list, Class<? extends T> theClass)
+    {
+        try
+        {
+            Scanner fin = new Scanner(new File("Data/"+fileType+".json"));
+            String text = "";
+            while(fin.hasNextLine())
+            {
+                text += fin.nextLine() + "\n";
+            }
+            fin.close();
+            list.addAll(Helper.getObjectList(text, theClass));
+        }
+        catch(FileNotFoundException e)
+        {
+            System.err.println("LOAD "+(fileType.toUpperCase())+" - "+e.getMessage());
         }
     }
     
