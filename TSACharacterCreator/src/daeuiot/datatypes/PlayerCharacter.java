@@ -5,13 +5,15 @@
  */
 package daeuiot.datatypes;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Daeuiot
  * 
  * This class is used to hold all of the data for any given character
  */
-public class PlayerCharacter {
+public class PlayerCharacter implements Serializable{
     private String fileName;
     private CharacterBackgroundLocation background;
     private PlayerSkill[] skills;

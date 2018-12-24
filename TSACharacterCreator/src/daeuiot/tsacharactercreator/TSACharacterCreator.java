@@ -7,10 +7,10 @@ package daeuiot.tsacharactercreator;
 
 import daeuiot.datatypes.*;
 import daeuiot.utility.Helper;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
+import java.io.*;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -28,7 +28,7 @@ import javafx.util.StringConverter;
  *
  * @author Daeuiot
  */
-public class TSACharacterCreator extends Application {
+public class TSACharacterCreator extends Application{
     Pane contentPage; //This is the Pane that contains all the content that changes when changing tabs
     PlayerCharacter pc; //The currently sellected PC
     
@@ -401,20 +401,29 @@ public class TSACharacterCreator extends Application {
      */
     private void saveCharacter()
     {
-        String outText = Helper.getJSON(pc);
-        try
-        {
+        try {
+            ObjectOutputStream fout = new ObjectOutputStream(new FileOutputStream(new File("Characters/"+pc.getFileName()+".dat")));
+            fout.writeObject(pc);
+            fout.close();
+            /*String outText = Helper.getJSON(pc);
+            try
+            {
             File saveFolder = new File("Characters");
             if(saveFolder.exists() == false)
             {
-                saveFolder.mkdir();
+            saveFolder.mkdir();
             }
             PrintWriter fout = new PrintWriter(new File("Characters/"+pc.getFileName()+".json"));
             fout.println(outText);
             fout.close();
-        }catch(FileNotFoundException e)
-        {
+            }catch(FileNotFoundException e)
+            {
             System.err.println("SAVE CHARACTER - "+e.getMessage());
+            }*/
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(TSACharacterCreator.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(TSACharacterCreator.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     

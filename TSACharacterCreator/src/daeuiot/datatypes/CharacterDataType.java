@@ -5,12 +5,14 @@
  */
 package daeuiot.datatypes;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Daeuiot
  */
 //Will rename class with a better name if there is one
-public abstract class CharacterDataType {
+public abstract class CharacterDataType implements Serializable{
     private String key;
     private String name;
     private String description;

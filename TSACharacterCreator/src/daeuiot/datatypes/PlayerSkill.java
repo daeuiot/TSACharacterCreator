@@ -5,11 +5,13 @@
  */
 package daeuiot.datatypes;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Daeuiot
  */
-public class PlayerSkill {
+public class PlayerSkill implements Serializable{
     Skill skill;
     int purchasedRanks;
 
