@@ -1,0 +1,1700 @@
+Apothecary
+When a patient under your character’s care would recover from
+wounds or strain from a natural rest, they heal an additional amount
+equal to your character’s ranks in Apothecary.
+ Trigger: Passive
+ Ranked: Yes
+ Tier: 1
+Armor Master
+When wearing armor, the character increases his total soak value by
+one.
+ Trigger: Passive
+ Ranked: No
+ Tier: 1
+Bounce Back
+Once per round on the character’s turn, the character may stand up
+from prone or a seated position as an incidental.
+ Trigger: Active (Incidental)
+ Ranked: No
+ Tier: 1
+Bought Intel
+When required to make a Knowledge skill check, the character can
+instead make a Bought Intel action. He spends a number of copper
+pieces equal to 50 times the difficulty of the check and counts as
+succeeding on the check with one uncanceled Success. At the GM’s
+discretion, the character may not be able to use this ability if the
+information sought is particularly esoteric or hard to find, or if the
+character is in a situation where he could not purchase information
+(such as marooned in the middle of the desert with no messenger
+hawk).
+ Trigger: Active (Action)
+ Ranked: No
+ Tier: 1
+Brace
+As a maneuver, the character may Brace himself. This allows a
+character to remove dice per rank of Brace from the next skill
+check based on changing conditions, inclement weather, unstable
+surfaces, high winds, rocking boats, or other disruptive physical
+obstacles that would make a skill check more difficult.
+ Trigger: Active (Maneuver)
+ Ranked: Yes
+ Tier: 1
+Brawler
+Your character adds a to combat checks that are unarmed or with
+an improvised weapon.
+ Trigger: Passive
+ Ranked: No
+ Tier: 1
+Bribery
+Before making a social check, the character may perform a Bribery
+maneuver and spend up to 50 copper per rank of Bribery. For every
+50 copper spent, the character upgrades the ability of the skill check
+once. How the money accomplishes this can be up to the player and
+GM, but could take the form of gifts, favors, or even information, like
+blackmail, that gives the character the upper hand in the interaction.
+ Trigger: Active (Maneuver)
+ Ranked: Yes
+ Tier: 1
+Cartographer
+Remove per rank of Cartographer from all Navigation checks. In
+addition, Navigation checks take 50% less time. This does not
+increase with multiple ranks of Cartographer.
+ Trigger: Passive
+ Ranked: Yes
+ Tier: 1
+Clever Retort
+Once per encounter, your character may suffer 1 strain to make a
+Clever Retort to add hh to another character’s social skill check.
+ Trigger: Active (Incidental, Out-of-Turn)
+ Ranked: No
+ Tier: 1
+Convincing Demeanor
+Remove per rank of Convincing Demeanor from any Deception,
+Perform or Sleight-of-Hand check.
+ Trigger: Passive
+ Ranked: Yes
+ Tier: 1
+Craftsman
+Remove per rank of Craftsman from all Engineering checks per
+rank of Craftsman. In addition, the cost to create, upgrade, or repair
+items decreases by half. This halving bonus does not stack with
+multiple ranks in Craftsman.
+ Trigger: Passive
+ Ranked: Yes
+ Tier: 1
+Cryptographer
+Remove per rank of Cryptographer from all Decipher checks per
+rank of Cryptographer.
+ Trigger: Passive
+ Ranked: Yes
+ Tier: 1
+Deflect
+When the character suffers a hit from a ranged combat check, after
+damage is calculated (but before soak is applied), the character may
+take a Deflect incidental. He suffers 3 strain and reduces the damage
+dealt by that hit by a number equal to 2 plus his ranks in Deflect.
+ Trigger: Active (Incidental, Out of Turn)
+ Ranked: Yes
+ Tier: 1
+Deft Hands
+The character adds to their Slight-of-Hand skill checks.
+ Trigger: Passive
+ Ranked: No
+ Tier: 1
+Duelist
+The character adds to his melee checks when engaged with only
+a single opponent. Your character adds when engaged with two or
+more opponents.
+ Trigger: Passive
+ Ranked: No
+ Tier: 1
+Durable
+The character may reduce a Critical Injury result he suffers by 10 per
+rank of Durable, to a minimum of one.
+ Trigger: Passive
+ Ranked: Yes
+ Tier: 1
+Excellent Swimmer
+The character may move through water as though it were normal
+terrain. Particularly harsh conditions, such as running rapids or
+powerful ocean currents, may still impose significant difficulties and
+thus the GM has ultimate discretion.
+ Trigger: Passive
+ Ranked: No
+ Tier: 1
+Expert Tracker
+Remove per rank of Expert Tracker from checks to find or follow
+tracks or other signs of quarry. Checks made to track targets take
+50% less time than normal. This does not decrease with additional
+ranks of Expert Tracker.
+ Trigger: Passive
+ Ranked: Yes
+ Tier: 1
+Feather Foot
+The character adds to all Acrobatics checks.
+ Trigger: Passive
+ Ranked: No
+ Tier: 1
+Forager
+Remove up to from skill checks to find food, water, shelter, wild
+game, herbs, etc. Survival checks take half the time. If another skill
+would reduce the time by half, these effects do not stack.
+ Trigger: Passive
+ Ranked: No
+ Tier: 1
+Good Company
+When attempting a Persuasion or Negotiation check, the character
+may suffer a number of strain to downgrade the difficulty of the check
+a number of times equal to the strain suffered. This number cannot
+exceed her ranks in Good Company. When the character is the target
+of a Persuasion or Negotiation check, the character may suffer a
+number of strain to upgrade the difficulty of the check a number of
+times equal to the strain suffered. This number cannot exceed her
+ranks in Good Company.
+ Trigger: Active (Incidental, Out of Turn)
+ Ranked: Yes
+ Tier: 1
+Grit
+Each rank of Grit increases a character’s strain threshold by one.
+ Trigger: Passive
+ Ranked: Yes
+ Tier: 1
+Hidden Storage
+Any large equipment, vehicle or other vessel that the character owns
+has one or more hidden compartments for smuggling appropriatelysized gear. The number of compartments is up to the player, be
+cannot be enough to hold a total encumbrance value of items more
+than the character’s ranks in Hidden Storage. The size of the
+compartments is proportional to the size of the vessel or storage unit
+in question. Any checks to detect these compartments have a
+Formidable ( ) difficulty.
+ Trigger: Passive
+ Ranked: Yes
+ Tier: 1
+Improvised
+The character adds +1 damage per rank of Improvised to any
+successful attacks made using an improvised weapon.
+ Trigger: Passive
+ Ranked: Yes
+ Tier: 1
+Indistinguishable
+The character’s appearance is so common that people have a hard
+time identifying distinguishing traits. Opposing characters add f to
+any checks made to identify him once per rank of Indistinguishable.
+ Trigger: Passive
+ Ranked: No
+ Tier: 1
+Kill with Kindness
+Remove per rank of Kill with Kindness from all Persuasion,
+Leadership, and Perform checks the character attempts.
+ Trigger: Passive
+ Ranked: Yes
+ Tier: 1
+Know Somebody
+Once per game session, when attempting to purchase a legally
+available item, the character may reduce its rarity by one level per
+rank of Know Somebody.
+ Trigger: Active (Incidental)
+ Ranked: Yes
+ Tier: 1
+Knowledge Specialization
+When the character first acquires this talent, he may choose one
+Knowledge skill. When making checks with that skill, he may spend
+t to gain additional s equal to his ranks in Intellect. This talent can
+be acquired multiple times, but each Knowledge Specialization can
+only be associated with one Knowledge skill.
+ Trigger: Passive
+ Ranked: Yes
+ Tier: 1
+Let’s Ride
+Once per round on the character’s turn, the character may mount or
+dismount from a vehicle or creature, or get behind the controls of any
+operable vehicle, as an incidental instead of a maneuver.
+ Trigger: Active (Incidental)
+ Ranked: No
+ Tier: 1
+Martial Artist
+The character adds to all Martial Arts checks.
+ Trigger: Passive
+ Ranked: No
+ Tier: 1
+Nimble
+Remove for each rank of Nimble from Acrobatics, Sleight-of-Hand,
+and Stealth skill checks.
+ Trigger: Passive
+ Ranked: Yes
+ Tier: 1
+Outdoorsman
+The character removes per rank of Outdoorsman from checks to
+move through terrain or manage terrain or environmental effects.
+Decrease overland travel times by 50%. This does not decrease with
+multiple ranks.
+ Trigger: Passive
+ Ranked: Yes
+ Tier: 1
+Parry
+When the character suffers a hit from a melee combat check, after
+damage is calculated (but before soak is applied), the character may
+take a Parry incidental. He suffers 3 strain and reduces the damage
+dealt by that hit by a number equal to 2 plus his ranks in Parry. This
+talent may only be used once per hit when the character is wielding a
+One-Handed or Two-Handed weapon.
+ Trigger: Active (Incidental, Out of Turn)
+ Ranked: Yes
+ Tier: 1
+Pep Talk
+Once per encounter, your character may suffer 1 strain to make a
+Clever Retort to add aa to another character’s social skill check.
+ Trigger: Active (Incidental, Out-of-Turn)
+ Ranked: No
+ Tier: 1
+Physician
+Whenever your character makes a Medicine check to help a
+character recover wounds, the target heals 1 additional strain per rank
+of Physician.
+ Trigger: Passive
+ Ranked: Yes
+ Tier: 1
+Plausible Deniability
+Remove per rank of Plausible Deniability from all Intimidation and
+Deception checks the character attempts.
+ Trigger: Passive
+ Ranked: Yes
+ Tier: 1
+Quick Draw
+Once per round on the character’s turn, she may draw or holster an
+easily accessible weapon as an incidental, not a maneuver. This
+talent also reduces the amount of time to draw or stow a weapon that
+usually requires more than one maneuver to properly prepare or stow,
+by one maneuver.
+ Trigger: Active (Incidental)
+ Ranked: No
+ Tier: 1
+Rapid Reaction
+The character may suffer a number of strain to add an equal number
+s to any Perception or Instinct check to determine initiative order.
+The number may not exceed his ranks in Rapid Reaction.
+ Trigger: Active (Incidental, Out of Turn)
+ Ranked: Yes
+ Tier: 1
+Rapid Recovery
+When this character heals strain after an encounter has concluded,
+he heals one additional strain per rank in Rapid Recovery.
+ Trigger: Passive
+ Ranked: Yes
+ Tier: 1
+Relic Hunter
+Once per game session, the character may take an action to make a
+Hard ( ) Knowledge (History) check remember a single relic,
+lost treasure, ruin, or other piece of history (subject to GM’s approval).
+On a successful roll, the character may introduce one fact about a
+piece of history somewhere in the world. The character must give a
+brief explanation about the provenance and significance of the lost
+treasure. Additional details, such as location or actual value, may be
+provided with additional aa or t, and all final details are subject to
+GM approval.
+ Trigger: Active (Action)
+ Ranked: No
+ Tier: 1
+Respected
+When this talent is chosen, choose one social group, or strata or class
+(e.g. law enforcement, academia, outcasts, the poor, nobility, etc.).
+The character downgrades the difficulty of checks to interact with this
+group equal to his ranks in Respected.
+ Trigger: Passive
+ Ranked: Yes
+ Tier: 1
+Salvager
+The character may take a Salvager action. With a Hard ( )
+Engineering check, the character may harvest components and
+parts from a device or item.
+ Trigger: Active (Action)
+ Ranked: No
+ Tier: 1
+Second Wind
+Once per encounter, the character may use a Second Wind incidental
+to recover an amount of strain equal to his ranks in Second Wind.
+ Trigger: Active (Incidental)
+ Ranked: Yes
+ Tier: 1
+Skilled Jockey
+The character removes per rank of Skilled Jockey from all Piloting
+checks and Animal Handling checks the character attempts when
+riding a vehicle or creature.
+ Trigger: Passive
+ Ranked: Yes
+ Tier: 1
+Smooth Talker
+When a character acquires this talent, he chooses one skill for a
+permanent bonus: Persuasion, Negotiation, or Deception. When
+making checks with that skill, he may spend t to gain additional s
+equal to his ranks in Smooth Talker.
+ Trigger: Active (Incidental)
+ Ranked: Yes
+ Tier: 1
+Solid Repairs
+The character repairs +1 hull trauma per rank of Solid Repairs
+whenever he repairs a vehicle, airship, or boat.
+ Trigger: Passive
+ Ranked: Yes
+ Tier: 1
+Sound Investments
+At the beginning of each game session, the character gains copper
+pieces equal to his ranks in Sound Investments times 100. How this
+money is earned is up to the player and the GM, and could be actual
+investments, business dealings, or even a small legal or illegal side
+business. The GM can also decide that the current events of the
+adventure may make these funds temporarily unavailable.
+ Trigger: Passive
+ Ranked: Yes
+ Tier: 1
+Surgeon
+When your character makes a Medicine check to heal wounds, the
+target heals one addition wound per rank of Surgeon.
+ Trigger: Passive
+ Ranked: Yes
+ Tier: 1
+Survivalist
+When in the wilderness, your character may make a Simple (—)
+Survival check, instead of Discipline or Meditation, to recover strain
+at the end of an encounter.
+ Trigger: Active (Action)
+ Ranked: No
+ Tier: 1
+Swift
+The character does not suffer the penalties for moving through difficult
+terrain (she moves through it at normal speed, without spending
+additional maneuvers).
+ Trigger: Passive
+ Ranked: No
+ Tier: 1
+Toughened
+The character increases his wound threshold by two per rank of
+Toughened.
+ Trigger: Passive
+ Ranked: Yes
+ Tier: 1
+Utility Pouch
+Once per game session, the character may suffer three strain to
+perform Utility Pouch as an incidental to produce a previously
+undisclosed—but essential—small tool from his utility belt, satchel,
+pockets, or backpack, with a rarity no greater than four (4). This
+cannot be a weapon unless the weapon has the Limited Ammo 1
+quality.
+ Trigger: Active (Incidental)
+ Ranked: No
+ Tier: 1
+Underground Contacts
+When looking to purchase illegal, exotic, or black market goods, the
+character may decrease an item’s rarity by one level per rank in
+Underground Contacts. For each level an item’s rarity is decreased,
+its cost increases by 50%.
+ Trigger: Passive
+ Ranked: Yes
+ Tier: 1
+Veteran
+Once per session, your character may collect a small favor from a
+current or former member of a nation’s military, even if they do not
+currently owe your character a favor.
+ Trigger: Active (Incidental)
+ Ranked: No
+ Tier: 1
+Weapon Specialist
+When your character acquires this talent, pick a weapon type. This
+character adds on all combat checks made using that weapon. The
+character must select a different weapon each time they take this
+talent.
+ Trigger: Passive
+ Ranked: Yes
+ Tier: 1
+Wheel and Deal
+When he sells legal goods to a reputable merchant or business, the
+character gains an additional 10% more coins per rank of Wheel and
+Deal (based on the current value of the good or item).
+ Trigger: Passive
+ Ranked: Yes
+ Tier: 1
+Adverse Conditioning
+Once per game session, the character may remove from any
+one skill check.
+ Trigger: Active (Incidental)
+ Ranked: No
+ Tier: 2
+Animal Whisperer
+The character gains per rank of Animal Whisperer to any tasks he
+instructs a creature to perform.
+ Trigger: Passive
+ Ranked: Yes
+ Tier: 2
+Attack of Opportunity
+The character adds on all combat checks against disoriented,
+immobilized, or staggered targets per rank of Attack of Opportunity.
+ Trigger: Passive
+ Ranked: Yes
+ Tier: 2
+Bad Cop
+The character may spend aa from a Deception or Intimidation check
+to upgrade the ability of a single ally’s subsequent Social Interaction
+skill check against the same target in the same encounter. Upgrade
+the ability a number of times equal to the character’s ranks in Bad
+Cop. A single check may only benefit from one use of Bad Cop.
+ Trigger: Passive
+ Ranked: Yes
+ Tier: 2
+Balance
+The character may perform the Balance maneuver. If they do so, they
+cannot be knocked prone until the beginning of their next turn.
+ Trigger: Active (Maneuver)
+ Ranked: No
+ Tier: 2
+Barrage
+Adds one damage per rank of Barrage to a successful Ranged attack
+made from long or extreme range.
+ Trigger: Passive
+ Ranked: Yes
+ Tier: 2
+Brute Strength
+The character deals +1 damage on all successful melee combat skill
+checks per rank of Brute Strength.
+ Trigger: Active (Maneuver)
+ Ranked: Yes
+ Tier: 2
+Chi Disruption
+As an action, the character may perform a Hard ( ) Martial Arts
+check to deal Stun Damage instead of wounds in addition to blocking
+a bending opponent from using their Forms until the end of the
+bender’s turn in the next round. This damage ignores soak.
+ Trigger: Active (Action)
+ Ranked: No
+ Tier: 2
+Codebreaker
+The character adds to his Decipher skill checks equal to his ranks
+in Codebreaker.
+ Trigger: Passive
+ Ranked: Yes
+ Tier: 2
+Command
+Gain when making Leadership checks (or other checks to inspire,
+lead, or rally an audience) per rank of Command. Inspired targets also
+add per rank to any subsequent Discipline checks they make over
+the next 24 hours.
+ Trigger: Passive
+ Ranked: Yes
+ Tier: 2
+Confidence
+The character may decrease the difficulty of any Discipline check to
+avoid the effects of fear by one level per rank of Confidence to a
+minimum of Easy ( ).
+ Trigger: Passive
+ Ranked: Yes
+ Tier: 2
+Coordinated Assault
+The character may make a Coordinated Assault maneuver. If he does
+so, a number of allies engaged with him equal to his ranks in
+Leadership gain a on combat checks they make until the end of your
+character’s next turn. The range of this maneuver increase by one
+band per rank of Coordinated Assault.
+ Trigger: Active (Maneuver)
+ Ranked: Yes
+ Tier: 2
+Counterstrike
+The character removes any imposed on their attacks generated
+when performing the Counter maneuver.
+ Trigger: Passive
+ Ranked: No
+ Tier: 2
+Crippling Blow
+The character may voluntarily increase the difficulty of a combat
+check by one to deal a crippling blow. If he succeeds and deals
+damage, the target suffers one strain whenever he moves for the
+remainder of the encounter.
+ Trigger: Active (Incidental)
+ Ranked: No
+ Tier: 2
+Defensive Training
+When the character wields a One-Handed or Two-Handed weapon,
+that weapon gains ranks in the Defensive item quality equal to the
+character’s ranks in Defensive Training (in addition to any ranks in
+Defensive the weapon already has).
+ Trigger: Passive
+ Ranked: Yes
+ Tier: 2
+Disorient
+After a successful combat check, the character may spend aa to
+disorient her foe. Disoriented targets add to all skill checks. The
+target is disoriented for a number of rounds equal to the attacker’s
+ranks in Disorient.
+ Trigger: Passive
+ Ranked: Yes
+ Tier: 2
+Distraction
+The character may make a Distraction maneuver and suffer a number
+of strain no greater than his ranks in Deception. If he does so, an
+equal number of adversaries or NPCs he is engaged with suffer h on
+checks they make until the beginning of the character’s next turn. The
+range of this maneuver increases by one band per rank of Distraction.
+ Trigger: Active (Maneuver)
+ Ranked: Yes
+ Tier: 2
+Dual Wield
+The character lowers the difficulty of all two-weapon fighting checks
+by one per rank of Dual Wield.
+ Trigger: Passive
+ Ranked: Yes
+ Tier: 2
+Eagle-Hawk Awareness
+Allies within short range of the character add to their Perception
+and Instinct checks. Allies engaged with him add instead.
+ Trigger: Passive
+ Ranked: No
+ Tier: 2
+Empathy
+The character adds to all Persuasion and Empathy checks.
+ Trigger: Passive
+ Ranked: No
+ Tier: 2
+Emergency Medicine
+Before making a Medicine check, your character may choose to
+apply Emergency Medicine. This talent adds s equal to their ranks in
+Emergency Medicine to the result. After the check is resolved, the
+target suffers 2 strain.
+ Trigger: Active (Incidental)
+ Ranked: Yes
+ Tier: 2
+Evasive Maneuver
+The character may make perform an Evasive Maneuver when piloting
+an airship or sailing at sea. The character selects an opponent and
+makes an opposed Piloting or Sailing check. If he succeeds, the
+opponent cannot make any attacks against the character’s vehicle for
+a number of rounds equal to the number of Success results. This
+talent can only be performed once per encounter.
+ Trigger: Active (Action)
+ Ranked: No
+ Tier: 2
+Fateful Spirit
+Once per game session, the character may add to any one skill
+check.
+ Trigger: Active (Incidental)
+ Ranked: No
+ Tier: 2
+Fearsome
+When an opponent becomes engaged with the character, the
+character may force the opponent to make a fear check with the
+difficulty equal to the character’s ranks in Fearsome. At the GM’s
+discretion, some adversaries may be immune to this talent based on
+the type of adversary or the ongoing circumstances.
+ Trigger: Passive
+ Ranked: Yes
+ Tier: 2
+Fisticuffs
+The character adds to all unarmed combat checks, including those
+made with martial weapons.
+ Trigger: Passive
+ Ranked: No
+ Tier: 2
+Good Cop
+The character may spend aa from a Persuasion or Negotiation
+check to upgrade the ability of a single ally’s subsequent social skill
+check against the same target in the same encounter. Upgrade the
+ability a number of times equal to the character’s ranks in Good Cop.
+A single check may only benefit from one use of Good Cop.
+ Trigger: Passive
+ Ranked: Yes
+ Tier: 2
+Gut Instinct
+The character adds per rank of Gut Instinct to all Instinct checks.
+ Trigger: Passive
+ Ranked: Yes
+ Tier: 2
+Headstrong
+On any turn in which the character is staggered or disoriented, he may
+perform the Headstrong action—this action may be specifically
+performed even though he is normally barred from performing actions
+when staggered. He makes a Daunting ( ) Discipline
+check. If he succeeds, he is no longer staggered or disoriented. The
+difficulty of this check decreases by one per additional rank of
+Headstrong, to a minimum of Easy ( ).
+ Trigger: Active (Action)
+ Ranked: Yes
+ Tier: 2
+Hot Fix
+Once per session, you may have your character temporarily repair
+one damaged item they can interact with. For a number of rounds
+equal to your character’s rank in Engineering, the item may be used
+without penalty, even if it would normally be unusable. When the
+effect ends, the item is damaged one additional step. If this would
+bring the object beyond repair, it is destroyed.
+ Trigger: Passive
+ Ranked: No
+ Tier: 2
+Hunter
+The character adds per rank of Hunter to all skill checks when
+interacting with wild beasts and animals, including combat checks.
+Add +10 per rank to all Critical Injury rolls against animals per rank of
+Hunter.
+ Trigger: Passive
+ Ranked: Yes
+ Tier: 2
+Identify
+Whenever the character comes across an item or other object of
+unknown provenance, he may make an attempt to identify it. The
+character makes a Hard ( ) Knowledge check using any of his
+knowledge skills he chooses. The character must explain how this
+particular area of his expertise is helping him to identify the object,
+item, or artefact.
+ Trigger: Passive
+ Ranked: No
+ Tier: 2
+Inspiring Rhetoric
+The character may take the Inspiring Rhetoric action; making an
+Average ( ) Leadership or Empathy check, for each s, one ally
+within close range recovers one strain. For each a, one ally
+benefiting from Inspiring Rhetoric recovers one additional strain.
+ Trigger: Active (Action)
+ Ranked: No
+ Tier: 2
+Inventor
+When crafting new items, or modifying existing ones, the character
+may choose to add or remove from the check per rank of
+Inventor.
+ Trigger: Passive
+ Ranked: Yes
+ Tier: 2
+Knockdown
+After hitting with a melee attack, the character may knock the target
+prone by spending a t. If the target is larger than the character, it
+requires one additional t for each silhouette larger.
+ Trigger: Passive
+ Ranked: No
+ Tier: 2
+Longshot
+Once per round before making a non-thrown ranged attack, the
+character may perform a maneuver to attempt a Longshot. Longshot
+increases the maximum range of his ranged weapon up to one range
+band per rank of Longshot. For each rank beyond the normal
+maximum of the weapon, upgrade the difficulty of the ranged check
+by one (this is in addition to the increased difficulty of the shot due to
+the longer range).
+ Trigger: Active (Maneuver)
+ Ranked: Yes
+ Tier: 2
+Malicious
+The character adds to all Intimidation and Deception checks per
+rank of Malicious.
+ Trigger: Passive
+ Ranked: Yes
+ Tier: 2
+Physical Conditioning
+The character adds per rank of Physical Conditioning to his
+Athletics and Resilience checks.
+ Trigger: Passive
+ Ranked: Yes
+ Tier: 2
+Precision
+Once per round on the character’s turn, the character may perform a
+Precision maneuver before attempting a combat check and voluntarily
+suffer a number of strain. The number of strain cannot exceed his
+ranks in Precision. He then decreases the target’s defense (ranged
+and melee) by one per strain suffered for that combat check.
+ Trigger: Active (Maneuver)
+ Ranked: Yes
+ Tier: 2
+Quick Strike
+When performing a combat check, the character adds per rank of
+Quick Strike to combat checks against any target that has not yet
+acted in the encounter.
+ Trigger: Passive
+ Ranked: Yes
+ Tier: 2
+Researcher
+On a successful Knowledge check, the character gains an automatic
+a per rank of Researcher. Researching takes 50% less time (this
+does not increase with multiple ranks of Researcher).
+ Trigger: Passive
+ Ranked: Yes
+ Tier: 2
+Restoration
+Add whenever the character makes a Medicine check to help
+himself or patient recover from poison, venom, burns, toxins, or other
+status effects.
+ Trigger: Passive
+ Ranked: No
+ Tier: 2
+Rude Words
+Once per encounter, the character can make Rude Words at a target.
+The character makes an Opposed Deception check. If successful,
+the target must attack the character during their next turn.
+ Trigger: Active (Action)
+ Ranked: No
+ Tier: 2
+Savvy Negotiator
+Once per social encounter, while engaged in a debate or argument,
+the character may make a Hard ( ) Negotiation check. If
+successful, a number of bystanders or observers equal to s see one
+of your opponent’s points (chosen by your character) as entirely
+unreasonable. The GM has the final say as to whether bystanders are
+around, or could see a point as unreasonable.
+ Trigger: Active (Action)
+ Ranked: No
+ Tier: 2
+Scathing Tirade
+The character may take the Scathing Tirade action; making an
+Average ( ) Persuasion or Perform check, for each s, one
+enemy within short range suffers one strain. For every a spent, one
+affected target suffers 1 additional strain.
+ Trigger: Active (Action)
+ Ranked: No
+ Tier: 2
+Sea Legs
+The character gains to all Sailing checks per rank of Sea Legs.
+ Trigger: Passive
+ Ranked: Yes
+ Tier: 2
+Shortcut
+During a chase, the character adds equal to his ranks in Shortcut
+to any checks made to catch or escape an opponent. This applies to
+characters and creatures located using the Survival skill as well.
+ Trigger: Passive
+ Ranked: Yes
+ Tier: 2
+Side Step
+Once per round on the character’s turn, the character may perform a
+Side Step maneuver to side step and attempt to avoid incoming
+ranged attacks. He then suffers a number of strain no greater than his
+ranks in Side Step. Until the start of the character’s next turn, upgrade
+the difficulty of all ranged combat checks targeting the character a
+number of times equal to the strain suffered by the character.
+ Trigger: Active (Maneuver)
+ Ranked: Yes
+ Tier: 2
+Spirit Healer
+Patients under the character’s supervision regain an additional wound
+per rank of Spirit Healer each time they recover a wound while using
+a spirit pool.
+ Trigger: Passive
+ Ranked: Yes
+ Tier: 2
+Stalker
+The character adds per rank of Stalker to all Acrobatics or Stealth
+checks.
+ Trigger: Passive
+ Ranked: Yes
+ Tier: 2
+Strong Arm
+Characters with the Strong Arm talent treat thrown weapons as if they
+had one step greater range, to a maximum of long range.
+ Trigger: Passive
+ Ranked: No
+ Tier: 2
+Stunning Blow
+When making unarmed combat checks, the character may choose to
+deal damage as strain instead of wounds. This does not ignore soak.
+ Trigger: Active (Incidental)
+ Ranked: No
+ Tier: 2
+Targeted Blow
+On a successful attack during combat, the character may suffer a
+number of strain no greater than his Agility rating to deal one
+additional point of damage equal to the number of strain suffered.
+ Trigger: Active (Incidental)
+ Ranked: No
+ Tier: 2
+Uncanny Senses
+The character adds per rank of Uncanny Senses to all Perception
+checks.
+ Trigger: Passive
+ Ranked: Yes
+ Tier: 2
+Weapon Master
+When your character purchases this talent, choose one combat skill.
+Once per game session, the character may reroll one skill check
+which uses that skill. You must choose a different combat skill on
+subsequent purchases of this talent.
+ Trigger: Active (Incidental)
+ Ranked: Yes
+ Tier: 2
+Animal Companion
+Upon a successful Hard (3) Animal Handling check, the character
+creates a bond with a single animal with which he is currently
+interacting. This cannot be done during structured encounters and
+may only be achieved once per game session. This animal must have
+a silhouette less than the character’s ranks in Animal Handling when
+the bond is created. This means that a character with 1 rank in Animal
+Handling could only bond with a silhouette 0 creature. The bond
+persists as long as the character chooses it to, although at the GM’s
+discretion, the bond may also be broken due to abusive treatment or
+other extenuating circumstances.
+As long as the bond persists, the animal remains near the character,
+and the controlling player dictates the animal’s overall behavior
+(although, since the animal is only bonded with the character, not
+dominated, it may still perform certain inconvenient actions such as
+scratching furniture, consuming rations, and marking territory). The
+character adds one Bonus dice to all Animal Handling skill checks
+involving this companion.
+Once per round during an encounter, the character may spend one
+maneuver to direct his animal in performing one action and one
+maneuver. The animal must be within hearing and visual range of the
+character (generally medium range) to do this. Otherwise, the animal
+does not contribute to the encounter. The specifics of its behavior are
+up to the player and the GM.
+ Trigger: Passive
+ Ranked: No
+ Tier: 3
+Armor Master (Expert)
+When wearing armor with a soak value of two or higher, the character
+increases his melee and ranged defense by one.
+ Trigger: Passive
+ Ranked: No
+ Tier: 3
+Battle Meditation
+The character may take the Battle Meditation action. To perform this
+action, he must make an Average ( ) Meditation check. If
+successful, he increases one attribute for his character by one for the
+remainder of the encounter, and suffers four strain. A character’s
+individual attributes may each only be increased once by Battle
+Meditation during an encounter.
+ Trigger: Active (Action)
+ Ranked: No
+ Tier: 3
+Bodyguard
+Once per round on the character’s turn, the character may perform a
+Bodyguard maneuver to protect one ally he is engaged with. He then
+voluntarily suffers a number of strain no greater than his ranks in
+Bodyguard. Until the start of the character’s next turn, upgrade the
+difficulty of all combat checks targeting the protected ally a number of
+times equal to the strain suffered by the character.
+ Trigger: Active (Maneuver)
+ Ranked: Yes
+ Tier: 3
+Chakras Aligned
+The character adds to all skill checks based on their Chi attribute.
+ Trigger: Passive
+ Ranked: No
+ Tier: 3
+Chi Disruption (Expert)
+The user may increase the difficulty of Chi Disruption a number of
+times no greater than their ranks in Chi Disruption; benders affected
+by Chi Disruption are affected for an extra number of rounds equal to
+the number of times difficulty is increased in this way. Additionally,
+targets affected by Chi Disruption become staggered until the
+beginning of their next turn, for a number of rounds indicated by the
+difficulty level. All Chi Disruption talent tiers count as ranks for the
+purpose of this talent.
+ Trigger: Passive
+ Ranked: Yes
+ Tier: 3
+Contraption
+Once per game session, the character can take a Contraption action.
+With a successful Hard ( ) Engineering check, the character
+can fashion a device to solve a current problem using the tools and
+other items on hand. This device must be approved by the GM and
+functions for the duration of the current encounter only. The items are
+lost in the process. A t may be spent to hold the contraption over
+into the next game session.
+ Trigger: Active (Action)
+ Ranked: Yes
+ Tier: 3
+Commanding Presence
+Once per session, the character may take the Commanding Presence
+action. Make an opposed Discipline check to force the target to
+leave an encounter. This does not work on a Nemesis-level enemy.
+ Trigger: Active (Action)
+ Ranked: No
+ Tier: 3
+Craftsman (Expert)
+When the character makes an Engineering check, they may suffer
+a number of strain no greater than their ranks in Engineering. They
+may convert that many s into a.
+ Trigger: Active (Incidental)
+ Ranked: No
+ Tier: 3
+Cryptographer (Expert)
+The character may reduce the difficulty of a Decipher skill check by
+one per rank of Cryptographer.
+ Trigger: Passive
+ Ranked: Yes
+ Tier: 3
+Deadeye
+The character may take voluntarily suffer a number of strain equal to
+his ranks in Deadeye to increase the damage of his next Ranged
+attack by half the strain (rounded up) suffered.
+ Trigger: Active (Incidental)
+ Ranked: Yes
+ Tier: 3
+Deflect (Expert)
+When the character suffers a hit from a ranged combat check and
+uses the Deflect incidental to reduce the damage from that hit, after
+the attack is resolved, the character may spend Despair or three
+Threat to automatically hit one target within medium range, dealing
+the same damage as the hit from the initial ranged attack.
+The ranged attack’s hit must be one that can be deflected and
+redirected (generally only solid objects such as rocks or arrows;
+anything else is subject to GM oversight). This talent may not be used
+if the original attack incapacitates the character.
+ Trigger: Active (Incidental, Out of Turn)
+ Ranked: No
+ Tier: 3
+Disarm
+After a successful combat check, the character may spend t or aa
+to disarm his foe.
+ Trigger: Passive
+ Ranked: No
+ Tier: 3
+Dodge
+When targeted by a combat check, the character may choose to
+immediately perform a Dodge incidental to suffer a number of strain,
+then upgrade the difficulty of the combat check by that number. The
+number of strain suffered cannot exceed his ranks in Dodge.
+ Trigger: Active (Incidental, Out of Turn)
+ Ranked: Yes
+ Tier: 3
+Encouraging Performance
+The character uses their voice, instrument, or other showmanship to
+put on an Encouraging Performance. Make an Average ( )
+Perform check. For each s, one ally within medium range adds
+to their next skill check. For each a, one ally benefiting from
+Encouraging Performance recovers 1 strain.
+ Trigger: Passive
+ Ranked: No
+ Tier: 3
+Field Commander
+The character may take a Field Commander action. By successfully
+passing an Average ( ) Leadership check, a number of allies
+equal to his Charisma may immediately suffer one strain to perform
+one maneuver (out-of-turn). This does not count against the limit
+against maneuvers per turn. If there are any questions as to the order
+in which allies act, the character using Field Commander is the final
+arbitrator.
+ Trigger: Active (Action)
+ Ranked: No
+ Tier: 3
+Full Throttle
+When piloting or sailing a vessel, your character may use this talent
+to make a Hard ( ) Piloting or Sailing check. If successful, the
+top speed of the vehicle increases by one (to a max of 5) for a number
+of rounds equal to your character’s Guile.
+ Trigger: Active (Action)
+ Ranked: No
+ Tier: 3
+Imposing
+The character may take an Imposing action to make a Hard ( )
+Intimidation check to convince a number of bystanders or minions
+no greater than your ranks in Intimidation to depart the scene.
+ Trigger: Active (Action)
+ Ranked: No
+ Tier: 3
+Informant
+Once per session, the character may spend a Story Point to reveal or
+introduce an NPC contact who can shed light on a chosen subject.
+ Trigger: Active (Incidental)
+ Ranked: No
+ Tier: 3
+Inspiring Rhetoric (Expert)
+Each ally affected by Inspiring Rhetoric gains on all skill checks for
+a number of rounds equal to the character’s ranks in Leadership or
+Empathy (whichever is larger); this does not stack with itself.
+ Trigger: Passive
+ Ranked: No
+ Tier: 3
+Intense Presence
+The character may suffer a number of strain equal no greater than her
+ranks in Intense Presence to downgrade the difficulty of any check
+using the Charisma attribute by the number of strain suffered.
+ Trigger: Active (Incidental)
+ Ranked: Yes
+ Tier: 3
+Intimidating
+When attempting an Intimidation check, the character may suffer a
+number of strain to downgrade the difficulty of the check a number of
+times equal to the strain suffered. This number cannot exceed his
+ranks in Intimidation. When the character is the target of an
+Intimidation check, the character may suffer a number of strain to
+upgrade the difficulty of the check a number of times equal to the
+strain suffered. This number cannot exceed his ranks in Intimidation.
+ Trigger: Active (Incidental, Out of Turn)
+ Ranked: No
+ Tier: 3
+Inventor (Expert)
+Whenever your character makes an Engineering check to create,
+modify, or repair something you apply the following When such a skill
+check generates a t, you roll an additional and add its results to
+the pool in addition to its normal effect; additionally, when such a skill
+check generates d, you roll an additional and add is results to the
+pool in addition to its normal effect. Each of these can only occur once
+per check.
+ Trigger: Passive
+ Ranked: No
+ Tier: 3
+Iron Body
+Increase the Critical Rating of all incoming attacks by 1 per rank of
+Iron Body.
+ Trigger: Passive
+ Ranked: Yes
+ Tier: 3
+Known Blueprint
+Once per game session, the character may spend a maneuver to
+make a Hard ( ) Engineering check. Success means the
+character is familiar with a building or vehicle’s design. He now knows
+the location of critical components or facilities within the building or
+vehicle as well as his own location. He can also plan unconventional
+routes around obstacles.
+ Trigger: Active (Maneuver)
+ Ranked: No
+ Tier: 3
+Lethal Blows
+The character adds +10 per rank of Lethal Blows to any Critical Injury
+rolls inflicted on opponents.
+ Trigger: Passive
+ Ranked: Yes
+ Tier: 3
+Museum Curator
+Once per game session, the character may take a Museum Curator
+action. The character may make a Daunting ( ) Leadership
+check to convince one NPC to relinquish their relic, artefact, scroll, or
+other item of historical value to the player character.
+ Trigger: Active (Action)
+ Ranked: No
+ Tier: 3
+Natural
+When your character purchases this talent, choose two non-combat
+skills. Once per game session, the character may reroll one skill check
+that uses one of those two skills.
+On subsequent purchases of this talent, you may only choose one
+additional skill.
+ Trigger: Active (Incidental)
+ Ranked: Yes
+ Tier: 3
+Nobody’s Fool
+The difficulty of any Persuasion, Intimidation, or Deception checks
+attempted against the character is upgraded once for each rank of
+Nobody’s Fool.
+ Trigger: Passive
+ Ranked: Yes
+ Tier: 3
+Parry (Expert)
+When the character suffers a hit from a melee combat check and uses
+the Parry incidental to reduce the damage from that hit, after the
+attack is resolved, the character may spend d or hhh to
+automatically hit the attacker once with the weapon your character is
+wielding. The hit deals the weapon’s base damage, plus any damage
+applicable from talents or abilities.
+The melee attack’s hit must be one that can be parried. This talent
+may not be used if the original attack incapacitates the character.
+ Trigger: Active (Incidental, Out of Turn)
+ Ranked: No
+ Tier: 3
+Point Blank
+The character adds one damage per rank of Point Blank to one
+successful ranged attack made while at short range or engaged.
+ Trigger: Passive
+ Ranked: Yes
+ Tier: 3
+Pressure Point
+When making a Martial Arts check against a living opponent, the
+character may choose to forgo dealing damage as wounds, instead
+dealing the equivalent damage as strain, plus additional strain equal
+to his Chi rating. These checks cannot be made with any weapons,
+but this strain damage is not reduced by soak.
+ Trigger: Active (Incidental)
+ Ranked: No
+ Tier: 3
+Prey on the Weak
+Gain +1 damage on a successful combat check against disoriented
+or staggered targets per rank of Prey on the Weak.
+ Trigger: Passive
+ Ranked: Yes
+ Tier: 3
+Rally!
+Once per encounter, the character may make a Hard ( )
+Leadership check. On a success, their allies may take their turns
+immediately.
+ Trigger: Action (Active)
+ Ranked: No
+ Tier: 3
+Resolve
+When a character involuntarily suffers strain, he suffers one less
+strain per rank of Resolve, to a minimum of one.
+ Trigger: Passive
+ Ranked: Yes
+ Tier: 3
+Scathing Tirade (Expert)
+Each enemy affected by Scathing Tirade suffers on all skill checks
+for a number of rounds equal to the character’s ranks in Persuasion
+or Perform (whichever is higher); this does not stack with itself.
+ Trigger: Passive
+ Ranked: No
+ Tier: 3
+Sneak Attack
+Add +1 damage per rank in Sneak Attack when you perform a
+successful combat check against a surprised or unsuspecting target.
+Adrenaline Rush
+Your character adds +2 damage to any successful attacks they make
+for each Critical Injury they are currently suffering.
+ Trigger: Passive
+ Ranked: No
+ Tier: 4
+Back-to-Back
+While engaged with one or more allies, your character and those allies
+add to your combat checks. If one or more allies engaged with your
+character also has Back-to-Back, the effects are cumulative to a
+maximum of .
+ Trigger: Passive
+ Ranked: No
+ Tier: 4
+Battle Meditation (Expert)
+As an incidental, when performing the Battle Meditation action, the
+character may increase the difficulty of the Meditation check to Hard
+( ). If she does so, she suffers one strain instead of four.
+ Trigger: Active (Incidental)
+ Ranked: No
+ Tier: 4
+Bodyguard (Expert)
+Once per encounter, when an ally protected by the character’s
+Bodyguard maneuver would suffer a hit from a combat check, the
+character may choose to suffer that hit instead of the ally.
+ Trigger: Active (Incidental, Out of Turn)
+ Ranked: No
+ Tier: 4
+Brazen Maneuver
+While driving, piloting, or sailing a vehicle, your character may use
+this talent to select one other vehicle within medium range and make
+an opposed Piloting/Sailing v. Piloting/Sailing check targeting the
+other vehicle’s driver, pilot, or sailor. If successful, roll twice on the
+Critical Hit table for vehicles. Choose one Critical Hit result to apply to
+your own vehicle, and apply the other Critical Hit to your target’s
+vehicle.
+You may spend t to add +20 to one Critical Hit result. The GM may
+spend d to add +20 to both Critical Hit results.
+ Trigger: Active (Action)
+ Ranked: No
+ Tier: 4
+Brothers in Arms
+Once per encounter, the character may make a Hard ( )
+Discipline check. If successful, your character and one ally per s
+within medium range gains +1 defense for the remainder of the
+encounter. The effect ends for an ally if they are no longer within rang.
+ Trigger: Active
+ Ranked: No
+ Tier: 4
+Determination
+The character gains +3 to their strain threshold.
+ Trigger: Passive
+ Ranked: Yes
+ Tier: 4
+Discredit
+Once per encounter, the character may take an action to Discredit
+someone in conversation. Make a Hard ( ) Deception check
+to upgrade the difficulty of a target’s social checks until the end of the
+encounter. Upgrade an additional difficulty dice per aa or t.
+ Trigger: Active (Action)
+ Ranked: No
+ Tier: 4
+Distraction (Expert)
+When affected by Distraction, NPCs suffer hh when making checks
+targeting the character’s allies.
+ Trigger: Passive
+ Ranked: No
+ Tier: 4
+Doublespeak
+You may spend aa or t from a successful Persuasion or Deception
+check to disorient a number of opponents within short range equal to
+your character’s Charisma for the remainder of the round and the next
+two rounds.
+ Trigger: Passive
+ Ranked: No
+ Tier: 4
+Enduring
+The character gains +1 soak per rank of Enduring.
+ Trigger: Passive
+ Ranked: Yes
+ Tier: 4
+Favored Weapon
+Each time the character gains a rank of Favored Weapon, she must
+choose one combat skill. The character may add her basic training
+ranks in that combat skill as additional damage to one hit of a
+successful attack made using that skill. Each rank of Favored
+Weapon must be associated with a different combat skill.
+ Trigger: Passive
+ Ranked: Yes
+ Tier: 4
+Fencer
+The character may perform One-Handed Weapon combat checks
+using their Agility rating instead of Body.
+ Trigger: Passive
+ Ranked: No
+ Tier: 4
+Field Commander (Expert)
+When taking a Field Commander action, the character may affect
+allies equal to twice his Charisma. In addition, he may spend Triumph
+generated on his Leadership checks to allow one ally to suffer one
+strain to perform an action, rather than a maneuver.
+ Trigger: Passive
+ Ranked: No
+ Tier: 4
+Fortune Favors the Bold
+Once per session as an incidental, you may suffer 2 strain to flip one
+GM Story Point to a Player Story Point.
+ Trigger: Active (Incidental)
+ Ranked: No
+ Tier: 4
+Frenzied Attack
+When making a melee combat check, the character may suffer a
+number of strain, then upgrade the ability of his combat check by that
+number. The number cannot exceed his ranks in Frenzied Attack.
+ Trigger: Active (Incidental)
+ Ranked: Yes
+ Tier: 4
+Full Throttle (Expert)
+Suffer 1 strain to attempt Full Throttle as a maneuver and decrease
+its difficulty to Average ( ).
+ Trigger: Active (Incidental)
+ Ranked: No
+ Tier: 4
+Heroic Fortitude
+The character may suffer one strain to ignore the effects of ongoing
+Critical Injuries on any Body or Agility related checks; she must suffer
+one strain per check each time she wishes to ignore the effects of her
+Critical Injuries and the Critical Injuries. She continues to suffer from
+the injury itself.
+ Trigger: Active (Incidental)
+ Ranked: No
+ Tier: 4
+In the Know
+Once per session, the character can purport to be In the Know. They
+can make an opposed Deception v. Instinct check, downgrading
+the difficulty a number of times equal to your ranks in In the Know.
+The target believes one falsified fact per s.
+ Trigger: Active (Action)
+ Ranked: Yes
+ Tier: 4
+Incite the Crowd
+Once per game session, the character can take an Incite the Crowd
+action to make a Hard ( ) Persuasion check. If successful, a
+number of beings up to twice his ranks in Persuasion become moved
+by the character’s words and will attempt to take action, whether
+against an organization or authority, or for the benefit of the party,
+until the end of the encounter. This may be due to something the
+character did or said, or just because of their predisposition.
+ Trigger: Active (Action)
+ Ranked: No
+ Tier: 4
+Inspiring Rhetoric (Master)
+The character may voluntarily suffer 1 strain to perform Inspiring
+Rhetoric as a maneuver instead of an action. Requires Inspiring
+Rhetoric (Expert).
+ Trigger: Active (Incidental)
+ Ranked: No
+ Tier: 4
+Jury Rigged
+The character chooses one personal weapon or piece of armor and
+may do one of the following per rank of Jury Rigged: increase the
+damage of the weapon by one; decrease the a cost on its Critical or
+any single other effect by one to a minimum of one; or increase
+armors ranged or melee defense by one. Alternatively, he can
+decrease the encumbrance of the item by two to a minimum of one.
+This bonus increases the value of the item by 20% per modification.
+ Trigger: Passive
+ Ranked: Yes
+ Tier: 4
+Let’s Talk About This
+Your character can use this talent to make an opposed
+Persuasion/Deception v. Discipline check targeting a single nonNemesis adversary within medium range. If the check succeeds, the
+target cannot make attacks (or perform hostile actions) against your
+character until the end of their next turn.
+You may spend aa to increase the length and effect by one
+additional turn, and spend t to extend the benefits to all of their
+known allies within short range of the target.
+The effect ends immediately if your character or an ally attacks the
+target. In addition, your GM may rule that some targets are immune
+to this ability. A beast-of-burden, for example, has no capacity to
+resolve a conflict through talking, nor would a Dark Spirit consumed
+by rage.
+ Trigger: Active (Action)
+ Ranked: No
+ Tier: 4
+Longshot (Expert)
+The character may perform the Longshot maneuver without
+upgrading the difficulty. In addition, successful ranged attacks made
+using Longshot add +1 damage for each rank in Longshot (including
+Expert).
+ Trigger: Passive
+ Ranked: No
+ Tier: 4
+Menace
+Once per round during the character’s turn, the character may spend
+a maneuver to instruct any suitably threatening creature linked
+through Animal Companion to perform the Menace maneuver when
+the create is at short range or engaged with the enemy. The target
+gains on their next combat check.
+ Trigger: Active (Maneuver)
+ Ranked: No
+ Tier: 4
+Mental Fortress
+The character may suffer one strain to ignore the effects of ongoing
+Critical Injuries on any Intellect or Guile related checks; she must
+suffer one strain per check each time she wishes to ignore the effects
+of her Critical Injuries and the Critical Injuries. She continues to suffer
+from the injury itself.
+ Trigger: Active (Incidental)
+ Ranked: No
+ Tier: 4
+Moving Target
+If your character has already acted this round, increase your ranged
+defense by 1 per rank of Moving Target until the end of the round.
+ Trigger: Passive
+ Ranked: Yes
+ Tier: 4
+Nerves of Steel
+The character may suffer one strain to ignore the effects of ongoing
+Critical Injuries on any Charisma or Chi related checks; she must
+suffer one strain per check each time she wishes to ignore the effects
+of her Critical Injuries and the Critical Injuries. She continues to suffer
+from the injury itself.
+ Trigger: Active (Incidental)
+ Ranked: No
+ Tier: 4
+Painkillers
+Your character’s knowledge of painkillers and herbal medicines
+allows them to use recovery items more effectively. Recover an
+additional 1 wound and/or strain per rank of Painkillers when using or
+applying consumables.
+ Trigger: Passive
+ Ranked: Yes
+ Tier: 4
+Precision Strike
+The character may perform Martial Arts combat checks using their
+Agility rating instead of Body.
+ Trigger: Passive
+ Ranked: No
+ Tier: 4
+Scathing Tirade (Master)
+The character may voluntarily suffer one strain to perform Scathing
+Tirade as a maneuver instead of an action.
+ Trigger: Active (Incidental)
+ Ranked: No
+ Tier: 4
+Secret Technique
+When making a check using the Martial Arts skill, the character may
+use Chi instead of Body.
+ Trigger: Passive
+ Ranked: No
+ Tier: 4
+Seen a Lot of Things
+Whenever your character would fail a Knowledge check, they may
+spend aaa to reroll the check. This can only be done once per
+check.
+ Trigger: Passive
+ Ranked: No
+ Tier: 4
+Sixth Sense
+The character adds +1 ranged defense.
+ Trigger: Passive
+ Ranked: No
+ Tier: 4
+Steady Aim
+Your character does not lose the benefits of the aim maneuver if they
+perform other maneuvers (including moving) or actions.
+ Trigger: Passive
+ Ranked: No
+ Tier: 4
+Superior Reflexes
+The character adds +1 melee defense.
+ Trigger: Passive
+ Ranked: No
+ Tier: 4
+Tinkerer
+The character makes one piece of equipment more modifiable. He
+chooses one piece of equipment and increases its number of
+hardpoints by one. He can only do this once per piece of equipment,
+but can modify a number of pieces of equipment equal to his ranks in
+Tinkerer. If he loses, breaks, or sells a modified piece of equipment,
+he may apply Tinkerer to a new one.
+ Trigger: Passive
+ Ranked: Yes
+ Tier: 4
+‘Tis But a Flesh Wound
+Once per session when you would suffer a Critical Injury, you may
+attempt to shrug it off as nothing but a flesh wound. Make a Hard
+( ) Resilience check to prevent the Critical Injury.
+ Trigger: Active (Incidental, Out-of-Turn)
+ Ranked: No
+ Tier: 4
+True Aim
+Once per round, before the character makes a ranged attack, he may
+perform a True Aim maneuver. By performing this maneuver, the
+character gains all the benefits for aiming and also upgrades one
+ability dice in his attack roll dice pool per rank of True Aim.
+ Trigger: Active (Maneuver)
+ Ranked: Yes
+ Tier: 4
+Trust the Captain
+The character may implore her allies to Trust the Captain. The
+character may make a Hard ( ) Leadership check. If
+successful, for the rest of the encounter any ally within short range
+increases their ranks in Discipline by an amount equal to ranks in
+Trust the Captain.
+ Trigger: Active (Action)
+ Ranked: Yes
+ Tier: 4
+Unrelenting
+Once per round after resolve a successful melee combat check, your
+character may suffer 4 strain to make an Unrelenting strike; as part of
+the incidental, roll an additional melee attack against the same target.
+Increase the difficulty of the check by 1 if you are using a secondary
+weapon; increase the difficulty by 2 if you are using the same weapon.
+ Trigger: Active (Incidental)
+ Ranked: No
+ Tier: 4
+Altered Deal
+Once per session, the character may make a Hard ( )
+Negotiation, Persuasion, or Intimidation check to radically change
+a previously-made deal or bargain to your character’s advantage.
+ Trigger: Active (Action)
+ Ranked: No
+ Tier: 5
+Armor Master (Master)
+Once per round, when the character suffers a Critical Injury, he may
+suffer 3 strain to take the Armor Master incidental. If he does, he
+reduces the Critical Injury result that he suffers by 10 per point of his
+soak, to a minimum of 1.
+ Trigger: Active (Incidental, Out-of-Turn)
+ Ranked: No
+ Tier: 5
+Baleful Gaze
+When you are targeted by a combat check from within medium
+range, you may spend a Story Point to upgrade the difficulty of the
+check a number of times equal to your ranks in Intimidation.
+ Trigger: Active (Incidental, Out-of-Turn)
+ Ranked: No
+ Tier: 5
+Battle Meditation (Master)
+When performing the Battle Meditation action, each t may be spent
+to increase an additional attribute by one.
+ Trigger: Passive
+ Ranked: No
+ Tier: 5
+Beast Master
+You must already have Animal Companion to acquire this talent.
+Your companion is considered its own NPC and can act of its own
+accord. Any maneuvers and actions it takes are assumed to be the
+result of an intense bond between you two, such that the creature
+understands your subtle signals and commands.
+ Trigger: Passive
+ Ranked: No
+ Tier: 5
+Biggest Fan
+Once per session, the character may take a Biggest Fan action to
+make a Hard ( ) Persuasion check. If successful, one NPC of
+the character’s choice in the current encounter turns out to be the
+character’s self-proclaimed “biggest fan.” The exact effects of this
+vary depending on the NPC and the situation. They can include
+drastically decreasing the difficulty of social interaction skill checks
+the character makes targeting his biggest fan, the fan being willing to
+perform minor or even significant favors for the character, or the
+character even becoming a recurring ally in the narrative.
+At the GM’s discretion, this talent may not be able to target certain
+NPCs whose adversarial nature is vital to the plot, or NPCs who would
+be unable to appreciate the character’s work such as beasts, spirits,
+and enemies.
+ Trigger: Active (Action)
+ Ranked: No
+ Tier: 5
+Drop Your Weapons!
+Once per game session, after initiative has been rolled for a combat
+encounter with sentient beings, the character can make a Daunting
+( ) Persuasion or Deception check. If successful, the
+encounter instead becomes a social encounter, with the PCs
+attempting to convince the opposition to back down, come around to
+their viewpoint, or accept a compromise.
+The GM is the final arbiter of how the situation resolves without
+violence, or how the combat encounter continues if the character’s
+check is unsuccessful.
+ Trigger: Action (Incidental, Out-of-Turn)
+ Ranked: No
+ Tier: 5
+Chi Disruption (Master)
+Chi Disruption immobilizes the target until the beginning of their next
+turn for the number of rounds indicated by the difficulty level.
+ Trigger: Passive
+ Ranked: No
+ Tier: 5
+Clever Solution
+Once per game session, the character can choose to make one skill
+check using Charisma rather than the attribute typically linked to that
+skill. When he does this, he must explain how, in this instance, his
+personality is helping him overcome this challenge.
+ Trigger: Active (Incidental)
+ Ranked: No
+ Tier: 5
+Coup de Grâce
+On any successful combat check, for each t your character may roll
+an additional , adding its results to the pool. Your character may do
+this for any number of t rolled initially, and in addition to any t
+generated on successive rolls. You cannot add more to the pool
+than you have ranks in Coup de Grâce.
+ Trigger: Passive
+ Ranked: Yes
+ Tier: 5
+Crushing Blow
+Once per session after rolling a melee attack but before resolving the
+check, your character may suffer 4 strain to deliver a Crushing Blow.
+The weapon gains the Breach 1 and Knockdown qualities, and
+destroys one item the target is wielding that does not have the
+Reinforced quality.
+ Trigger: Active (Incidental)
+ Ranked: No
+ Tier: 5
+Deadeye (Expert)
+The character may voluntarily suffer a number of strain equal to his
+ranks in Deadeye (expert or otherwise) to increase the damage of his
+next Ranged attack equal to the number of strain suffered. This
+replaces the basic Deadeye talent.
+ Trigger: Active (Incidental)
+ Ranked: No
+ Tier: 5
+Dedication
+Each rank permanently increases a single attribute of the player’s
+choice by one point. This cannot bring an attribute above 6. You
+cannot increase the same attribute with Dedication twice.
+ Trigger: Passive
+ Ranked: Yes
+ Tier: 5
+Deflect (Master)
+If the user did not make a combat check during his previous turn, he
+suffers 1 strain when taking the Deflect incidental instead of 3.
+ Trigger: Passive
+ Ranked: No
+ Tier: 5
+Focus
+Before making a skill check, the character may perform the Focus
+maneuver. The character suffers one strain to upgrade the ability of
+the skill check once.
+ Trigger: Active (Maneuver)
+ Ranked: No
+ Tier: 5
+Full Throttle (Master)
+When performing Full Throttle, the top speed of the vehicle increases
+by 2 instead of 1.
+ Trigger: Passive
+ Ranked: No
+ Tier: 5
+Indomitable
+Once per encounter, when your character would be incapacitated due
+to exceeding their wound or strain threshold, you may spend a Story
+Point to use this talent. Then, your character is not incapacitated until
+the end of their next turn. If your character reduces their strain or
+wounds to below their threshold before the end of their next turn, they
+are no incapacitated.
+ Trigger: Active (Incidental, Out-of-Turn)
+ Ranked: No
+ Tier: 5
+Inspiring Leadership
+Make a Hard ( ) Leadership check. If successful, a number of
+allies not exceeding your character’s Charisma within medium range
+add s to their next skill check.
+ Trigger: Active (Maneuver)
+ Ranked: No
+ Tier: 5
+Is Anyone a Doctor?
+Once per session, whenever an ally would fall below their strain or
+wound threshold, the character may spend a Story Point to stabilize
+them instead, bringing them to 1 below their threshold.
+ Trigger: Active (Incidental, Out-of-Turn)
+ Ranked: No
+ Tier: 5
+Lightning Reflexes
+Once per game session, the character can choose to make on skill
+check using Agility rather than the attribute typically linked to that skill.
+When he does this, he must explain how, in this instance, his agile
+prowess is helping him overcome this challenge.
+ Trigger: Active (Incidental)
+ Ranked: No
+ Tier: 5
+Master
+When you purchase this talent for your character, choose one skill.
+Once per round, the character may voluntarily suffer two strain to
+decrease the difficulty of the next check using that skill by two, to a
+minimum of Easy ( ).
+ Trigger: Active (Incidental)
+ Ranked: No
+ Tier: 5
+Craftsman (Master)
+When the character makes an Engineering check to create, modify,
+or repair an existing piece of equipment or a vehicle, the character
+may spend a t to add a new quality or feature to the object.
+ Trigger: Active (Incidental)
+ Ranked: No
+ Tier: 5
+Master Merchant
+Before making a check when buying or selling items, or undertaking
+or paying off one’s debts, the character may choose to suffer two
+strain. If the check succeeds, he sells the item for 25% more than
+base cost, buys it for 25% less, pays off additional debt, or gain aa.
+ Trigger: Active (Incidental)
+ Ranked: No
+ Tier: 5
+Master Driver/Pilot/Sailor
+Once per round when piloting an airship, ground vehicle, or sailing a
+marine vessel, the character may voluntarily suffer two strain to
+perform any action as a maneuver instead.
+ Trigger: Active (Incidental)
+ Ranked: No
+ Tier: 5
+Parry (Master)
+If the user did not make a combat check during his previous turn, he
+suffers 1 strain when taking the Parry incidental instead of 3.
+ Trigger: Passive
+ Ranked: No
+ Tier: 5
+Professor
+Once per round, suffer 2 strain to allow an ally within short range to
+count as having the same number of ranks in Discipline as your
+character for the next Discipline check that character makes.
+ Trigger: Active (Incidental, Out-of-Turn)
+ Ranked: No
+ Tier: 5
+Quick Fix
+Once per game session, the character can choose to make on skill
+check using Guile rather than the attribute typically linked to that skill.
+When he does this, she must explain how, in this instance, her wit is
+helping her overcome this challenge.
+ Trigger: Active (Incidental)
+ Ranked: No
+ Tier: 5
+Show of Might
+Once per game session, the character can choose to make on skill
+check using Body rather than the attribute typically linked to that skill.
+When he does this, he must explain how, in this instance, his brawn
+is helping him overcome this challenge.
+ Trigger: Active (Incidental)
+ Ranked: No
+ Tier: 5
+Sneak Attack (Expert)
+Once per encounter, you may spend a Story Point to add t to the
+results of your attack action. This does not count as s, but as a result
+in addition to the resolved dice roll.
+ Trigger: Active (Incidental)
+ Ranked: No
+ Tier: 5
+Spiritual Guru
+Once per game session, the character can choose to make on skill
+check using Chi rather than the attribute typically linked to that skill.
+When he does this, she must explain how, in this instance, her
+spiritual connecting is helping her overcome this challenge.
+ Trigger: Active (Incidental)
+ Ranked: No
+ Tier: 5
+Stroke of Genius
+Once per game session, the character can choose to make on skill
+check using Intellect rather than the attribute typically linked to that
+skill. When he does this, he must explain how, in this instance, his
+intelligence is helping him overcome this challenge.
+ Trigger: Active (Incidental)
+ Ranked: No
+ Tier: 5
+Surgeon (Master)
+Whenever this character attempts to heal any Critical Injury, lower the
+difficulty of the check one per rank of Surgeon to a minimum of Easy
+( ). This includes all versions of Surgeon.
+ Trigger: Passive
+ Ranked: No
+ Tier: 5

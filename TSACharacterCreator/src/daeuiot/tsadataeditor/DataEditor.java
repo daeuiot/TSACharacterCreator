@@ -13,31 +13,14 @@ import java.io.PrintWriter;
 import java.util.Optional;
 import java.util.Scanner;
 import javafx.application.Application;
-import javafx.application.Platform;
 import javafx.beans.property.ReadOnlyObjectWrapper;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ButtonBar;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Dialog;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListCell;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Callback;
@@ -54,7 +37,7 @@ import javafx.util.Callback;
  */
 public class DataEditor extends Application {
     enum ContentPage {
-        CULTURE, LOCATION, ATTRIBUTE, SKILL
+        CULTURE, LOCATION, ATTRIBUTE, SKILL, TALENT
     }
     
     ContentPage currentContentPage;
@@ -64,6 +47,7 @@ public class DataEditor extends Application {
     ObservableList<CharacterDataType> locations = FXCollections.observableArrayList();
     ObservableList<CharacterDataType> attributes = FXCollections.observableArrayList();
     ObservableList<CharacterDataType> skills = FXCollections.observableArrayList();
+    ObservableList<CharacterDataType> talents = FXCollections.observableArrayList();
     
     @Override
     public void start(Stage primaryStage) {
@@ -82,13 +66,15 @@ public class DataEditor extends Application {
         Button btnLocations     = new Button("Locations");
         Button btnAttributes    = new Button("Attributes");
         Button btnSkills        = new Button("Skills");
-        tabs.getChildren().addAll(btnCultures, btnLocations, btnAttributes, btnSkills);
+        Button btnTalents       = new Button("Talents");
+        tabs.getChildren().addAll(btnCultures, btnLocations, btnAttributes, btnSkills,btnTalents);
         tabs.setStyle("-fx-spacing: 10; -fx-alignment: center; -fx-padding: 10; -fx-background-color: pink");
         tabs.setPrefWidth(100);
         btnCultures.setMinWidth(tabs.getPrefWidth());
         btnLocations.setMinWidth(tabs.getPrefWidth());
         btnAttributes.setMinWidth(tabs.getPrefWidth());
         btnSkills.setMinWidth(tabs.getPrefWidth());
+        btnTalents.setMinWidth(tabs.getPrefWidth());
         tabs.setMaxSize(150, windowHeight);
         
         Label lbTabName = new Label("Skills");
@@ -116,6 +102,9 @@ public class DataEditor extends Application {
         TableColumn<CharacterDataType, String> nameColumn = new TableColumn<>("Name");
         TableColumn<CharacterDataType, String> typeColumn = new TableColumn<>("Type");
         TableColumn<CharacterDataType, String> cultureColumn = new TableColumn<>("Culture");
+        TableColumn<CharacterDataType, String> triggerColumn = new TableColumn<>("Trigger");
+        TableColumn<CharacterDataType, String> rankedColumn = new TableColumn<>("Ranked");
+        TableColumn<CharacterDataType, String> tierColumn = new TableColumn<>("Tier");
         keyColumn.setCellValueFactory(new PropertyValueFactory<>("Key"));
         nameColumn.setCellValueFactory(new PropertyValueFactory<>("Name"));
         typeColumn.setCellValueFactory(new PropertyValueFactory<>("Type"));
@@ -124,8 +113,15 @@ public class DataEditor extends Application {
                 return new ReadOnlyObjectWrapper<>(getCharacterBackgroundCulture(((CharacterBackgroundLocation)param.getValue()).getCultureKey()).getName());
             return new ReadOnlyObjectWrapper<>("ERROR");
         });
+        triggerColumn.setCellValueFactory(new PropertyValueFactory<>("Trigger"));
+        rankedColumn.setCellValueFactory((TableColumn.CellDataFeatures<CharacterDataType, String> param) -> {
+            if(param.getValue() instanceof Talent)
+                return new ReadOnlyObjectWrapper<>(((Talent)(param.getValue())).isRanked()?"Yes":"No");
+            return new ReadOnlyObjectWrapper<>("ERROR");
+        });
+        tierColumn.setCellValueFactory(new PropertyValueFactory<>("Tier"));
         tableView.getColumns().clear();
-        tableView.getColumns().addAll(keyColumn, nameColumn, typeColumn, cultureColumn);
+        tableView.getColumns().addAll(keyColumn, nameColumn, typeColumn, cultureColumn, triggerColumn, rankedColumn, tierColumn);
         tableView.setItems(skills);
         //keyColumn.setMinWidth(100);
         //nameColumn.setMinWidth(tableView.getWidth()+100);
@@ -147,6 +143,9 @@ public class DataEditor extends Application {
             currentContentPage = ContentPage.CULTURE;
             typeColumn.setVisible(false);
             cultureColumn.setVisible(false);
+            triggerColumn.setVisible(false);
+            rankedColumn.setVisible(false);
+            tierColumn.setVisible(false);
         });
         btnLocations.setOnAction((e) -> {
             btnAdd.setOnAction((ev) -> {
@@ -157,6 +156,9 @@ public class DataEditor extends Application {
             currentContentPage = ContentPage.LOCATION;
             typeColumn.setVisible(false);
             cultureColumn.setVisible(true);
+            triggerColumn.setVisible(false);
+            rankedColumn.setVisible(false);
+            tierColumn.setVisible(false);
         });
         btnAttributes.setOnAction((e) -> {
             btnAdd.setOnAction((ev) -> {
@@ -167,6 +169,9 @@ public class DataEditor extends Application {
             currentContentPage = ContentPage.ATTRIBUTE;
             typeColumn.setVisible(false);
             cultureColumn.setVisible(false);
+            triggerColumn.setVisible(false);
+            rankedColumn.setVisible(false);
+            tierColumn.setVisible(false);
         });
         btnSkills.setOnAction((e) -> {
             btnAdd.setOnAction((ev) -> {
@@ -177,6 +182,22 @@ public class DataEditor extends Application {
             currentContentPage = ContentPage.SKILL;
             typeColumn.setVisible(true);
             cultureColumn.setVisible(false);
+            triggerColumn.setVisible(false);
+            rankedColumn.setVisible(false);
+            tierColumn.setVisible(false);
+        });
+        btnTalents.setOnAction((e) -> {
+            btnAdd.setOnAction((ev) -> {
+                talentAdd();
+            });
+            lbTabName.setText("Talents");
+            tableView.setItems(talents);
+            currentContentPage = ContentPage.TALENT;
+            typeColumn.setVisible(false);
+            cultureColumn.setVisible(false);
+            triggerColumn.setVisible(true);
+            rankedColumn.setVisible(true);
+            tierColumn.setVisible(true);
         });
         
         tabs.relocate(5, 50);
@@ -187,6 +208,49 @@ public class DataEditor extends Application {
         primaryStage.setScene(scene);
         
         btnCultures.fire();
+    }
+    
+    private void talentAdd()
+    {
+        System.out.println("TALENT ADD IS NOT COMPLETE");
+    }
+    
+    //This is for converting the text from the pdf into JSON
+    private void rawTalentAdd()
+    {
+        try
+        {
+            Scanner fin = new Scanner(new File("Data/rawTalents.txt"));
+            while(fin.hasNextLine())
+            {
+                String name = fin.nextLine();
+                System.out.println("Name - "+name);
+                String description = "";
+                String trigger;
+                while(true)
+                {
+                    String line = fin.nextLine();
+                    if(line.charAt(0) != '')
+                    {
+                        description += line;
+                        continue;
+                    }
+                    trigger = line.split(":")[1].trim();
+                    description = description.trim();
+                    break;
+                }
+                System.out.println("Description - "+description);
+                System.out.println("Trigger - "+trigger);
+                boolean ranked = fin.nextLine().equalsIgnoreCase(" Ranked: Yes");
+                System.out.println("Ranked - "+ranked);
+                int tier = Integer.parseInt(fin.nextLine().split(":")[1].trim());
+                System.out.println("Tier - "+tier);
+                talents.add(new Talent(tier, trigger, ranked, name, description));
+            }
+        }catch(Exception e)
+        {
+            e.printStackTrace();
+        }
     }
     
     private void skillAdd()
@@ -494,6 +558,9 @@ public class DataEditor extends Application {
             fin.close();
             locations.clear();
             locations.addAll(Helper.getObjectList(text, CharacterBackgroundLocation.class));
+            
+            //Right now using the function to voncert the telents into json, but change it to the others
+            rawTalentAdd();
         }
         catch(FileNotFoundException e)
         {
