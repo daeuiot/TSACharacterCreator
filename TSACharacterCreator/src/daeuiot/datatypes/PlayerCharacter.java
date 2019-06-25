@@ -5,6 +5,9 @@
  */
 package daeuiot.datatypes;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author Daeuiot
@@ -15,6 +18,7 @@ public class PlayerCharacter {
     private String fileName;
     private CharacterBackgroundLocation background;
     private PlayerSkill[] skills;
+    private List<List<Talent>> talents;
     
     public PlayerCharacter(String fileName, Skill[] skills)
     {
@@ -24,6 +28,11 @@ public class PlayerCharacter {
         for(int i=0;i<skills.length;++i)
         {
             this.skills[i] = new PlayerSkill(skills[i]);
+        }
+        talents = new ArrayList<>(5);
+        for(int i=0;i<5;++i)
+        {
+            talents.add(new ArrayList<>());
         }
     }
     
@@ -63,5 +72,15 @@ public class PlayerCharacter {
             //xp refund stuff
             skill.decrementPurchasedRank();
         }
+    }
+    
+    public List<List<Talent>> getTalents()
+    {
+        return talents;
+    }
+    
+    public List<Talent> getTalents(int tier)
+    {
+        return talents.get(tier);
     }
 }

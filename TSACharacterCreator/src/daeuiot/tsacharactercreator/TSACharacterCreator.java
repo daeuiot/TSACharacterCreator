@@ -19,6 +19,7 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -34,7 +35,7 @@ public class TSACharacterCreator extends Application {
     PlayerCharacter pc; //The currently sellected PC
     
     enum ContentPage {
-        CHARACTER, BACKGROUND, ATTRIBUTE, SKILL
+        CHARACTER, BACKGROUND, ATTRIBUTE, SKILL, TALENT
     }
     
     ContentPage currentContentPage;
@@ -51,6 +52,7 @@ public class TSACharacterCreator extends Application {
     Pane backgroundContent;
     Pane attributeContent;
     Pane skillContent;
+    Pane talentContent;
     
     @Override
     public void start(Stage primaryStage) {
@@ -83,13 +85,15 @@ public class TSACharacterCreator extends Application {
         Button btnBackgrounds   = new Button("Backgrounds");
         Button btnAttributes    = new Button("Attributes");
         Button btnSkills        = new Button("Skills");
-        tabs.getChildren().addAll(btnCharacters, btnBackgrounds, btnAttributes, btnSkills);
+        Button btnTalents       = new Button("Talents");
+        tabs.getChildren().addAll(btnCharacters, btnBackgrounds, btnAttributes, btnSkills, btnTalents);
         tabs.setStyle("-fx-spacing: 10; -fx-alignment: center; -fx-padding: 10; -fx-background-color: pink");
         tabs.setPrefWidth(100);
         btnCharacters.setMinWidth(tabs.getPrefWidth());
         btnBackgrounds.setMinWidth(tabs.getPrefWidth());
         btnAttributes.setMinWidth(tabs.getPrefWidth());
         btnSkills.setMinWidth(tabs.getPrefWidth());
+        btnTalents.setMinWidth(tabs.getPrefWidth());
         tabs.setMaxSize(150, windowHeight);
         
         buildCharacterContentPage();
@@ -100,11 +104,13 @@ public class TSACharacterCreator extends Application {
         
         buildSkillContentPage();
         
+        buildTalentContentPage();
+        
         contentPage = new Pane();
         contentPage.getChildren().setAll(characterContent.getChildren());
         currentContentPage = ContentPage.CHARACTER;
         contentPage.setStyle("-fx-background-color: orange");
-        contentPage.setMinSize(600, 400); //Make it dynamic size based on windowWidth/windowHeight
+        contentPage.setMinSize(750, 540); //Make it dynamic size based on windowWidth/windowHeight
         
         //Switching Content Pages
         btnCharacters.setOnAction((e) -> {
@@ -127,13 +133,86 @@ public class TSACharacterCreator extends Application {
             contentPage.getChildren().setAll(skillContent.getChildren());
             currentContentPage = ContentPage.SKILL;
         });
+        btnTalents.setOnAction((e) -> {
+            saveContentPageChildren(contentPage.getChildren());
+            contentPage.getChildren().setAll(talentContent.getChildren());
+            currentContentPage = ContentPage.TALENT;
+        });
         
         tabs.relocate(10, 50);
-        contentPage.relocate(200, 50);
+        contentPage.relocate(140, 50);
         Pane root = new Pane(tabs, contentPage);
         Scene scene = new Scene(root, windowWidth, windowHeight);
         
         primaryStage.setScene(scene);
+        btnTalents.fire();
+    }
+    
+    private HBox generateTalentHBox()
+    {
+        Label lbTest = new Label("test");
+        HBox hbTalent = new HBox(lbTest);
+        hbTalent.setMinSize(145, 145);
+        hbTalent.setStyle("-fx-background: white");
+        return hbTalent;
+    }
+    
+    private void buildTalentContentPage()
+    {
+        Label lbTalentName = new Label("Talents");
+        lbTalentName.relocate(5, 10);
+        
+        Label lbTierOne = new Label("Tier One");
+        lbTierOne.relocate(55, 30);
+        
+        Label lbTierTwo = new Label("Tier Two");
+        lbTierTwo.relocate(55+149, 30);
+        
+        Label lbTierThree = new Label("Tier Three");
+        lbTierThree.relocate(55+(149*2), 30);
+        
+        Label lbTierFour = new Label("Tier Four");
+        lbTierFour.relocate(55+(149*3), 30);
+        
+        Label lbTierFive = new Label("Tier Five");
+        lbTierFive.relocate(55+(149*4), 30);
+        
+        ScrollPane spTierOne = new ScrollPane(generateTalentHBox());
+        spTierOne.relocate(5+(149*0), 50);
+        spTierOne.setMinSize(145, 485);
+        spTierOne.setStyle("-fx-background: orange; -fx-border-color: darkorange");
+        spTierOne.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+        spTierOne.setVbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
+        
+        ScrollPane spTierTwo = new ScrollPane();
+        spTierTwo.relocate(5+(149*1), 50);
+        spTierTwo.setMinSize(145, 485);
+        spTierTwo.setStyle("-fx-background: orange; -fx-border-color: darkorange");
+        spTierTwo.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+        spTierTwo.setVbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
+        
+        ScrollPane spTierThree = new ScrollPane();
+        spTierThree.relocate(5+(149*2), 50);
+        spTierThree.setMinSize(145, 485);
+        spTierThree.setStyle("-fx-background: orange; -fx-border-color: darkorange");
+        spTierThree.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+        spTierThree.setVbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
+        
+        ScrollPane spTierFour = new ScrollPane();
+        spTierFour.relocate(5+(149*3), 50);
+        spTierFour.setMinSize(145, 485);
+        spTierFour.setStyle("-fx-background: orange; -fx-border-color: darkorange");
+        spTierFour.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+        spTierFour.setVbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
+        
+        ScrollPane spTierFive = new ScrollPane();
+        spTierFive.relocate(5+(149*4), 50);
+        spTierFive.setMinSize(145, 485);
+        spTierFive.setStyle("-fx-background: orange; -fx-border-color: darkorange");
+        spTierFive.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+        spTierFive.setVbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
+        
+        talentContent = new Pane(lbTalentName, lbTierOne, lbTierTwo, lbTierThree, lbTierFour, lbTierFive, spTierOne, spTierTwo, spTierThree, spTierFour, spTierFive);
     }
     
     private void buildAttributeContentPage()
@@ -336,6 +415,9 @@ public class TSACharacterCreator extends Application {
                 break;
             case SKILL: 
                 skillContent.getChildren().setAll(children);
+                break;
+            case TALENT: 
+                talentContent.getChildren().setAll(children);
                 break;
             default:
                 System.err.println("SaveContentPageChildren - no case for "+currentContentPage.toString());
