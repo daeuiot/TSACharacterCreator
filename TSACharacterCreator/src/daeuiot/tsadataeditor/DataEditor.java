@@ -216,6 +216,7 @@ public class DataEditor extends Application {
     }
     
     //This is for converting the text from the pdf into JSON
+    //or more accuractely just reading it into objects
     private void rawTalentAdd()
     {
         try
@@ -224,7 +225,7 @@ public class DataEditor extends Application {
             while(fin.hasNextLine())
             {
                 String name = fin.nextLine();
-                System.out.println("Name - "+name);
+                //System.out.println("Name - "+name);
                 String description = "";
                 String trigger;
                 while(true)
@@ -239,12 +240,12 @@ public class DataEditor extends Application {
                     description = description.trim();
                     break;
                 }
-                System.out.println("Description - "+description);
-                System.out.println("Trigger - "+trigger);
+                //System.out.println("Description - "+description);
+                //System.out.println("Trigger - "+trigger);
                 boolean ranked = fin.nextLine().equalsIgnoreCase(" Ranked: Yes");
-                System.out.println("Ranked - "+ranked);
+                //System.out.println("Ranked - "+ranked);
                 int tier = Integer.parseInt(fin.nextLine().split(":")[1].trim());
-                System.out.println("Tier - "+tier);
+                //System.out.println("Tier - "+tier);
                 talents.add(new Talent(tier, trigger, ranked, name, description));
             }
         }catch(Exception e)
@@ -560,7 +561,16 @@ public class DataEditor extends Application {
             locations.addAll(Helper.getObjectList(text, CharacterBackgroundLocation.class));
             
             //Right now using the function to voncert the telents into json, but change it to the others
-            rawTalentAdd();
+            //rawTalentAdd();
+            fin = new Scanner(new File("Data/talents.json"));
+            text = "";
+            while(fin.hasNextLine())
+            {
+                text += fin.nextLine();
+            }
+            fin.close();
+            talents.clear();
+            talents.addAll(Helper.getObjectList(text, Talent.class));
         }
         catch(FileNotFoundException e)
         {
@@ -588,6 +598,12 @@ public class DataEditor extends Application {
                 case LOCATION:{
                         PrintWriter fout = new PrintWriter(new File("Data/locations.json"));
                         fout.print(Helper.getJSONList(locations, CharacterDataType.class));
+                        fout.close();
+                        break;
+                    }
+                case TALENT:{
+                        PrintWriter fout = new PrintWriter(new File("Data/talents.json"));
+                        fout.print(Helper.getJSONList(talents, CharacterDataType.class));
                         fout.close();
                         break;
                     }
